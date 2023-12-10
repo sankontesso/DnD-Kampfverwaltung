@@ -1,3 +1,4 @@
+using System.ComponentModel.Design.Serialization;
 using System.Windows.Forms;
 
 namespace DnD_Kampfverwaltung
@@ -10,10 +11,15 @@ namespace DnD_Kampfverwaltung
         CheckBox[] checkBoxes = new CheckBox[20];
         public int counter = 0;
 
+        int standardSizeX;
+        int standardSizeY;
+        List<Control> controlList = new List<Control>();
+
         public Form1()
         {
             InitializeComponent();
             this.Text = "W2.0 Kampfverwaltung";
+
             //Namen-Textboxes
             textBoxes[0] = textBox1;
             textBoxes[1] = textBox2;
@@ -35,6 +41,7 @@ namespace DnD_Kampfverwaltung
             textBoxes[17] = textBox18;
             textBoxes[18] = textBox19;
             textBoxes[19] = textBox20;
+
             //Zugzeiten-Checkboxes
             checkBoxes[0] = doubleTime1;
             checkBoxes[1] = doubleTime2;
@@ -56,6 +63,11 @@ namespace DnD_Kampfverwaltung
             checkBoxes[17] = doubleTime18;
             checkBoxes[18] = doubleTime19;
             checkBoxes[19] = doubleTime20;
+
+            //Fenstergröße für den Resize-Befehl speichern
+            standardSizeX = this.Width;
+            standardSizeY = this.Height;
+            fillList();
         }
 
         private void fightButton_Click(object sender, EventArgs e)
@@ -94,6 +106,7 @@ namespace DnD_Kampfverwaltung
 
         public void addFighter(string fighter, bool doubleTime)
         {
+            //Neuen Kämpfer (inklusive Angabe der Zeitverlängerung) hinzufügen
             fighters.Add(fighter);
             doubleTimes.Add(doubleTime);
             counter++;
@@ -105,6 +118,29 @@ namespace DnD_Kampfverwaltung
             foreach (TextBox a in textBoxes) a.Text = "";
             foreach (CheckBox a in checkBoxes) a.Checked = false;
             timePerRound.Text = "";
+        }
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            float factorX = this.Width / standardSizeX;
+            float factorY = this.Height / standardSizeY;
+            foreach (Control a in controlList)
+            {
+                a.Size = new Size((int)(a.Width * factorX), (int)(a.Height * factorY));
+                a.Text = "TEST";
+            }
+        }
+
+        private void fillList()
+        {
+            foreach (TextBox a in textBoxes)
+            {
+                controlList.Add(a);
+            }
+            foreach (CheckBox a in checkBoxes)
+            {
+                controlList.Add(a);
+            }
         }
     }
 }
