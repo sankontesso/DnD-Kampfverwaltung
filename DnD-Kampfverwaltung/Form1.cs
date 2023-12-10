@@ -56,7 +56,6 @@ namespace DnD_Kampfverwaltung
             checkBoxes[17] = doubleTime18;
             checkBoxes[18] = doubleTime19;
             checkBoxes[19] = doubleTime20;
-            autoScale();
         }
 
         private void fightButton_Click(object sender, EventArgs e)
@@ -107,17 +106,5 @@ namespace DnD_Kampfverwaltung
             foreach (CheckBox a in checkBoxes) a.Checked = false;
             timePerRound.Text = "";
         }
-
-        private void autoScale()
-        {
-            Control[] c = Controls.OfType<Control>().Cast<Control>().ToArray();
-            foreach(Control controlItem in c)
-            {
-                
-            }
-            int i = 3;
-            i++;
-        }
-
     }
 }
