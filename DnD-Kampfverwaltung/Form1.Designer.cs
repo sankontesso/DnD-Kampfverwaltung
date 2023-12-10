@@ -78,6 +78,7 @@
             // 
             // textBox1
             // 
+            textBox1.Anchor = AnchorStyles.None;
             textBox1.Location = new Point(31, 154);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(152, 23);
@@ -85,6 +86,7 @@
             // 
             // textBox2
             // 
+            textBox2.Anchor = AnchorStyles.None;
             textBox2.Location = new Point(31, 183);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(152, 23);
@@ -92,6 +94,7 @@
             // 
             // textBox3
             // 
+            textBox3.Anchor = AnchorStyles.None;
             textBox3.Location = new Point(31, 212);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(152, 23);
@@ -99,6 +102,7 @@
             // 
             // textBox4
             // 
+            textBox4.Anchor = AnchorStyles.None;
             textBox4.Location = new Point(31, 241);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(152, 23);
@@ -106,6 +110,7 @@
             // 
             // textBox5
             // 
+            textBox5.Anchor = AnchorStyles.None;
             textBox5.Location = new Point(31, 270);
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(152, 23);
@@ -113,6 +118,7 @@
             // 
             // textBox6
             // 
+            textBox6.Anchor = AnchorStyles.None;
             textBox6.Location = new Point(31, 299);
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(152, 23);
@@ -120,6 +126,7 @@
             // 
             // textBox7
             // 
+            textBox7.Anchor = AnchorStyles.None;
             textBox7.Location = new Point(31, 328);
             textBox7.Name = "textBox7";
             textBox7.Size = new Size(152, 23);
@@ -127,6 +134,7 @@
             // 
             // textBox8
             // 
+            textBox8.Anchor = AnchorStyles.None;
             textBox8.Location = new Point(31, 357);
             textBox8.Name = "textBox8";
             textBox8.Size = new Size(152, 23);
@@ -134,6 +142,7 @@
             // 
             // textBox9
             // 
+            textBox9.Anchor = AnchorStyles.None;
             textBox9.Location = new Point(31, 386);
             textBox9.Name = "textBox9";
             textBox9.Size = new Size(152, 23);
@@ -141,6 +150,7 @@
             // 
             // textBox10
             // 
+            textBox10.Anchor = AnchorStyles.None;
             textBox10.Location = new Point(31, 415);
             textBox10.Name = "textBox10";
             textBox10.Size = new Size(152, 23);
@@ -148,6 +158,7 @@
             // 
             // textBox11
             // 
+            textBox11.Anchor = AnchorStyles.None;
             textBox11.Location = new Point(249, 154);
             textBox11.Name = "textBox11";
             textBox11.Size = new Size(160, 23);
@@ -155,6 +166,7 @@
             // 
             // textBox12
             // 
+            textBox12.Anchor = AnchorStyles.None;
             textBox12.Location = new Point(249, 183);
             textBox12.Name = "textBox12";
             textBox12.Size = new Size(160, 23);
@@ -162,6 +174,7 @@
             // 
             // textBox13
             // 
+            textBox13.Anchor = AnchorStyles.None;
             textBox13.Location = new Point(249, 212);
             textBox13.Name = "textBox13";
             textBox13.Size = new Size(160, 23);
@@ -169,6 +182,7 @@
             // 
             // textBox14
             // 
+            textBox14.Anchor = AnchorStyles.None;
             textBox14.Location = new Point(249, 241);
             textBox14.Name = "textBox14";
             textBox14.Size = new Size(160, 23);
@@ -176,6 +190,7 @@
             // 
             // textBox15
             // 
+            textBox15.Anchor = AnchorStyles.None;
             textBox15.Location = new Point(249, 270);
             textBox15.Name = "textBox15";
             textBox15.Size = new Size(160, 23);
@@ -183,6 +198,7 @@
             // 
             // textBox16
             // 
+            textBox16.Anchor = AnchorStyles.None;
             textBox16.Location = new Point(249, 299);
             textBox16.Name = "textBox16";
             textBox16.Size = new Size(160, 23);
@@ -190,6 +206,7 @@
             // 
             // textBox17
             // 
+            textBox17.Anchor = AnchorStyles.None;
             textBox17.Location = new Point(249, 328);
             textBox17.Name = "textBox17";
             textBox17.Size = new Size(160, 23);
@@ -197,6 +214,7 @@
             // 
             // textBox18
             // 
+            textBox18.Anchor = AnchorStyles.None;
             textBox18.Location = new Point(249, 357);
             textBox18.Name = "textBox18";
             textBox18.Size = new Size(160, 23);
@@ -204,6 +222,7 @@
             // 
             // textBox19
             // 
+            textBox19.Anchor = AnchorStyles.None;
             textBox19.Location = new Point(249, 386);
             textBox19.Name = "textBox19";
             textBox19.Size = new Size(160, 23);
@@ -211,6 +230,7 @@
             // 
             // textBox20
             // 
+            textBox20.Anchor = AnchorStyles.None;
             textBox20.Location = new Point(249, 415);
             textBox20.Name = "textBox20";
             textBox20.Size = new Size(160, 23);
@@ -218,6 +238,7 @@
             // 
             // fightButton
             // 
+            fightButton.Anchor = AnchorStyles.None;
             fightButton.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
             fightButton.Location = new Point(241, 483);
             fightButton.Name = "fightButton";
@@ -229,6 +250,7 @@
             // 
             // timePerRound
             // 
+            timePerRound.Anchor = AnchorStyles.None;
             timePerRound.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             timePerRound.Location = new Point(35, 500);
             timePerRound.Multiline = true;
@@ -240,6 +262,7 @@
             // 
             // deleteButton
             // 
+            deleteButton.Anchor = AnchorStyles.None;
             deleteButton.Location = new Point(31, 444);
             deleteButton.Name = "deleteButton";
             deleteButton.Size = new Size(75, 23);
@@ -250,6 +273,7 @@
             // 
             // logoBox
             // 
+            logoBox.Anchor = AnchorStyles.Top;
             logoBox.BackColor = SystemColors.Control;
             logoBox.BackgroundImageLayout = ImageLayout.None;
             logoBox.Image = Properties.Resources.Logo_Scale;
@@ -262,6 +286,7 @@
             // 
             // doubleTime1
             // 
+            doubleTime1.Anchor = AnchorStyles.None;
             doubleTime1.AutoSize = true;
             doubleTime1.Location = new Point(10, 158);
             doubleTime1.Name = "doubleTime1";
@@ -271,6 +296,7 @@
             // 
             // doubleTime2
             // 
+            doubleTime2.Anchor = AnchorStyles.None;
             doubleTime2.AutoSize = true;
             doubleTime2.Location = new Point(10, 187);
             doubleTime2.Name = "doubleTime2";
@@ -280,6 +306,7 @@
             // 
             // doubleTime3
             // 
+            doubleTime3.Anchor = AnchorStyles.None;
             doubleTime3.AutoSize = true;
             doubleTime3.Location = new Point(10, 216);
             doubleTime3.Name = "doubleTime3";
@@ -289,6 +316,7 @@
             // 
             // doubleTime6
             // 
+            doubleTime6.Anchor = AnchorStyles.None;
             doubleTime6.AutoSize = true;
             doubleTime6.Location = new Point(10, 303);
             doubleTime6.Name = "doubleTime6";
@@ -298,6 +326,7 @@
             // 
             // doubleTime5
             // 
+            doubleTime5.Anchor = AnchorStyles.None;
             doubleTime5.AutoSize = true;
             doubleTime5.Location = new Point(10, 274);
             doubleTime5.Name = "doubleTime5";
@@ -307,6 +336,7 @@
             // 
             // doubleTime4
             // 
+            doubleTime4.Anchor = AnchorStyles.None;
             doubleTime4.AutoSize = true;
             doubleTime4.Location = new Point(10, 245);
             doubleTime4.Name = "doubleTime4";
@@ -316,6 +346,7 @@
             // 
             // doubleTime9
             // 
+            doubleTime9.Anchor = AnchorStyles.None;
             doubleTime9.AutoSize = true;
             doubleTime9.Location = new Point(10, 390);
             doubleTime9.Name = "doubleTime9";
@@ -325,6 +356,7 @@
             // 
             // doubleTime8
             // 
+            doubleTime8.Anchor = AnchorStyles.None;
             doubleTime8.AutoSize = true;
             doubleTime8.Location = new Point(10, 361);
             doubleTime8.Name = "doubleTime8";
@@ -334,6 +366,7 @@
             // 
             // doubleTime7
             // 
+            doubleTime7.Anchor = AnchorStyles.None;
             doubleTime7.AutoSize = true;
             doubleTime7.Location = new Point(10, 332);
             doubleTime7.Name = "doubleTime7";
@@ -343,6 +376,7 @@
             // 
             // doubleTime10
             // 
+            doubleTime10.Anchor = AnchorStyles.None;
             doubleTime10.AutoSize = true;
             doubleTime10.Location = new Point(10, 419);
             doubleTime10.Name = "doubleTime10";
@@ -352,6 +386,7 @@
             // 
             // doubleTime20
             // 
+            doubleTime20.Anchor = AnchorStyles.None;
             doubleTime20.AutoSize = true;
             doubleTime20.Location = new Point(228, 419);
             doubleTime20.Name = "doubleTime20";
@@ -361,6 +396,7 @@
             // 
             // doubleTime19
             // 
+            doubleTime19.Anchor = AnchorStyles.None;
             doubleTime19.AutoSize = true;
             doubleTime19.Location = new Point(228, 390);
             doubleTime19.Name = "doubleTime19";
@@ -370,6 +406,7 @@
             // 
             // doubleTime18
             // 
+            doubleTime18.Anchor = AnchorStyles.None;
             doubleTime18.AutoSize = true;
             doubleTime18.Location = new Point(228, 361);
             doubleTime18.Name = "doubleTime18";
@@ -379,6 +416,7 @@
             // 
             // doubleTime17
             // 
+            doubleTime17.Anchor = AnchorStyles.None;
             doubleTime17.AutoSize = true;
             doubleTime17.Location = new Point(228, 332);
             doubleTime17.Name = "doubleTime17";
@@ -388,6 +426,7 @@
             // 
             // doubleTime16
             // 
+            doubleTime16.Anchor = AnchorStyles.None;
             doubleTime16.AutoSize = true;
             doubleTime16.Location = new Point(228, 303);
             doubleTime16.Name = "doubleTime16";
@@ -397,6 +436,7 @@
             // 
             // doubleTime15
             // 
+            doubleTime15.Anchor = AnchorStyles.None;
             doubleTime15.AutoSize = true;
             doubleTime15.Location = new Point(228, 274);
             doubleTime15.Name = "doubleTime15";
@@ -406,6 +446,7 @@
             // 
             // doubleTime14
             // 
+            doubleTime14.Anchor = AnchorStyles.None;
             doubleTime14.AutoSize = true;
             doubleTime14.Location = new Point(228, 245);
             doubleTime14.Name = "doubleTime14";
@@ -415,6 +456,7 @@
             // 
             // doubleTime13
             // 
+            doubleTime13.Anchor = AnchorStyles.None;
             doubleTime13.AutoSize = true;
             doubleTime13.Location = new Point(228, 216);
             doubleTime13.Name = "doubleTime13";
@@ -424,6 +466,7 @@
             // 
             // doubleTime12
             // 
+            doubleTime12.Anchor = AnchorStyles.None;
             doubleTime12.AutoSize = true;
             doubleTime12.Location = new Point(228, 187);
             doubleTime12.Name = "doubleTime12";
@@ -433,6 +476,7 @@
             // 
             // doubleTime11
             // 
+            doubleTime11.Anchor = AnchorStyles.None;
             doubleTime11.AutoSize = true;
             doubleTime11.Location = new Point(228, 158);
             doubleTime11.Name = "doubleTime11";
