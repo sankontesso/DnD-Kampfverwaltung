@@ -43,6 +43,7 @@
             folgendLabel = new Label();
             logoBox = new PictureBox();
             newFighterButton = new Button();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)logoBox).BeginInit();
             SuspendLayout();
             // 
@@ -160,7 +161,7 @@
             logoBox.Location = new Point(3, -6);
             logoBox.Name = "logoBox";
             logoBox.Size = new Size(134, 124);
-            logoBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            logoBox.SizeMode = PictureBoxSizeMode.Zoom;
             logoBox.TabIndex = 25;
             logoBox.TabStop = false;
             // 
@@ -175,11 +176,22 @@
             newFighterButton.UseVisualStyleBackColor = true;
             newFighterButton.Click += newFighterButton_Click;
             // 
+            // button1
+            // 
+            button1.Font = new Font("Segoe UI", 27.75F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.Location = new Point(561, 336);
+            button1.Name = "button1";
+            button1.Size = new Size(144, 95);
+            button1.TabIndex = 27;
+            button1.Text = "Status";
+            button1.UseVisualStyleBackColor = true;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(871, 543);
+            Controls.Add(button1);
             Controls.Add(newFighterButton);
             Controls.Add(folgendLabel);
             Controls.Add(roundsLabel);
@@ -195,6 +207,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form2";
             Text = "Form2";
+            Resize += Form2_Resize;
             ((System.ComponentModel.ISupportInitialize)logoBox).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -215,5 +228,6 @@
         private Label folgendLabel;
         private PictureBox logoBox;
         private Button newFighterButton;
+        private Button button1;
     }
 }

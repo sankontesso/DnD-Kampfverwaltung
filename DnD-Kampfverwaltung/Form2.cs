@@ -25,6 +25,12 @@ namespace DnD_Kampfverwaltung
         Label[] fighterLabels = new Label[5]; //Labels für die Ausgabe der Reihenfolge
         private int round = 1; //Rundenzähler
 
+        //Variablen für das Resizing
+        private Dictionary<Control, Rectangle> initialFormSize = new Dictionary<Control, Rectangle>();
+        private Dictionary<Control, float> initialFontSizes = new Dictionary<Control, float>();
+        private int standardSizeX;
+        private int standardSizeY;
+
         public Form2(List<string> fighters, List<bool> doubleTimes, string timePerRound)
         {
             InitializeComponent();
@@ -40,6 +46,16 @@ namespace DnD_Kampfverwaltung
             fighterLabels[4] = fifthLabel;
             //Starte den Kampf
             startBattle();
+
+            //Fenstergröße & Positionen + Größen der Controls für den Resize-Befehl speichern
+            foreach (Control control in this.Controls)
+            {
+                initialFormSize[control] = control.Bounds;
+                initialFontSizes[control] = control.Font.Size;
+            }
+            standardSizeX = this.Width;
+            standardSizeY = this.Height;
+            resize();
         }
 
         private void startBattle()
@@ -162,6 +178,28 @@ namespace DnD_Kampfverwaltung
                 doubleTimes.Insert(activeFighter + 1, dialog.checkBox1.Checked); //Eintragung ob Zugzeit verdoppelt wird
                 showOrder(); //Neue Reihenfolge anzeigen
             }
+        }
+
+        private void resize()
+        {
+            float scaleX = (float)this.Size.Width / (float)standardSizeX;
+            float scaleY = (float)this.Size.Height / (float)standardSizeY;
+
+            foreach (Control control in this.Controls)
+            {
+                control.Left = (int)(initialFormSize[control].Left * scaleX);
+                control.Top = (int)(initialFormSize[control].Top * scaleY);
+                control.Width = (int)(initialFormSize[control].Width * scaleX);
+                control.Height = (int)(initialFormSize[control].Height * scaleY);
+
+                float currentSize = initialFontSizes[control];
+                control.Font = new Font(control.Font.FontFamily, currentSize * Math.Min(scaleX, scaleY));
+            }
+        }
+
+        private void Form2_Resize(object sender, EventArgs e)
+        {
+            resize();
         }
     }
 }

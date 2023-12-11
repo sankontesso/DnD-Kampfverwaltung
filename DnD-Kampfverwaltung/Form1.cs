@@ -12,6 +12,7 @@ namespace DnD_Kampfverwaltung
         CheckBox[] checkBoxes = new CheckBox[20];
         public int counter = 0;
 
+        //Variablen für das Resizing
         private Dictionary<Control, Rectangle> initialFormSize = new Dictionary<Control, Rectangle>();
         private Dictionary<Control, float> initialFontSizes = new Dictionary<Control, float>();
         private int standardSizeX;
@@ -74,6 +75,7 @@ namespace DnD_Kampfverwaltung
             }
             standardSizeX = this.Width;
             standardSizeY = this.Height;
+            resize();
         }
 
         private void fightButton_Click(object sender, EventArgs e)
@@ -126,7 +128,7 @@ namespace DnD_Kampfverwaltung
             timePerRound.Text = "";
         }
 
-        private void Form1_Resize(object sender, EventArgs e)
+        private void resize()
         {
             float scaleX = (float)this.Size.Width / (float)standardSizeX;
             float scaleY = (float)this.Size.Height / (float)standardSizeY;
@@ -141,6 +143,11 @@ namespace DnD_Kampfverwaltung
                 float currentSize = initialFontSizes[control];
                 control.Font = new Font(control.Font.FontFamily, currentSize * Math.Min(scaleX, scaleY));
             }
+        }
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            resize();
         }
     }
 }

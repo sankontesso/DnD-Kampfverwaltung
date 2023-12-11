@@ -80,9 +80,8 @@
             // 
             textBox1.Anchor = AnchorStyles.None;
             textBox1.Location = new Point(33, 172);
-            textBox1.Multiline = true;
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(200, 25);
+            textBox1.Size = new Size(200, 23);
             textBox1.TabIndex = 0;
             // 
             // doubleTime11
@@ -314,10 +313,9 @@
             timePerRound.Anchor = AnchorStyles.None;
             timePerRound.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             timePerRound.Location = new Point(61, 508);
-            timePerRound.Multiline = true;
             timePerRound.Name = "timePerRound";
             timePerRound.PlaceholderText = "Zugzeit [s]";
-            timePerRound.Size = new Size(149, 35);
+            timePerRound.Size = new Size(149, 33);
             timePerRound.TabIndex = 20;
             timePerRound.TextAlign = HorizontalAlignment.Center;
             // 
@@ -417,81 +415,72 @@
             // 
             textBox10.Anchor = AnchorStyles.None;
             textBox10.Location = new Point(33, 442);
-            textBox10.Multiline = true;
             textBox10.Name = "textBox10";
-            textBox10.Size = new Size(200, 25);
+            textBox10.Size = new Size(200, 23);
             textBox10.TabIndex = 9;
             // 
             // textBox9
             // 
             textBox9.Anchor = AnchorStyles.None;
             textBox9.Location = new Point(33, 412);
-            textBox9.Multiline = true;
             textBox9.Name = "textBox9";
-            textBox9.Size = new Size(200, 25);
+            textBox9.Size = new Size(200, 23);
             textBox9.TabIndex = 8;
             // 
             // textBox8
             // 
             textBox8.Anchor = AnchorStyles.None;
             textBox8.Location = new Point(33, 382);
-            textBox8.Multiline = true;
             textBox8.Name = "textBox8";
-            textBox8.Size = new Size(200, 25);
+            textBox8.Size = new Size(200, 23);
             textBox8.TabIndex = 7;
             // 
             // textBox7
             // 
             textBox7.Anchor = AnchorStyles.None;
             textBox7.Location = new Point(33, 352);
-            textBox7.Multiline = true;
             textBox7.Name = "textBox7";
-            textBox7.Size = new Size(200, 25);
+            textBox7.Size = new Size(200, 23);
             textBox7.TabIndex = 6;
             // 
             // textBox6
             // 
             textBox6.Anchor = AnchorStyles.None;
             textBox6.Location = new Point(33, 322);
-            textBox6.Multiline = true;
             textBox6.Name = "textBox6";
-            textBox6.Size = new Size(200, 25);
+            textBox6.Size = new Size(200, 23);
             textBox6.TabIndex = 5;
             // 
             // textBox5
             // 
             textBox5.Anchor = AnchorStyles.None;
             textBox5.Location = new Point(33, 292);
-            textBox5.Multiline = true;
             textBox5.Name = "textBox5";
-            textBox5.Size = new Size(200, 25);
+            textBox5.Size = new Size(200, 23);
             textBox5.TabIndex = 4;
             // 
             // textBox4
             // 
             textBox4.Anchor = AnchorStyles.None;
             textBox4.Location = new Point(33, 262);
-            textBox4.Multiline = true;
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(200, 25);
+            textBox4.Size = new Size(200, 23);
             textBox4.TabIndex = 3;
             // 
             // textBox3
             // 
             textBox3.Anchor = AnchorStyles.None;
             textBox3.Location = new Point(33, 232);
-            textBox3.Multiline = true;
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(200, 25);
+            textBox3.Size = new Size(200, 23);
             textBox3.TabIndex = 2;
             // 
             // textBox2
             // 
             textBox2.Anchor = AnchorStyles.None;
             textBox2.Location = new Point(33, 202);
-            textBox2.Multiline = true;
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(200, 25);
+            textBox2.Size = new Size(200, 23);
             textBox2.TabIndex = 1;
             // 
             // Form1
