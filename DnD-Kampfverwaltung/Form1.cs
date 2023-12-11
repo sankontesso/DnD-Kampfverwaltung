@@ -1,3 +1,4 @@
+using Microsoft.VisualBasic;
 using System.ComponentModel.Design.Serialization;
 using System.Windows.Forms;
 
@@ -11,9 +12,10 @@ namespace DnD_Kampfverwaltung
         CheckBox[] checkBoxes = new CheckBox[20];
         public int counter = 0;
 
-        int standardSizeX;
-        int standardSizeY;
-        List<Control> controlList = new List<Control>();
+        private Dictionary<Control, Rectangle> initialFormSize = new Dictionary<Control, Rectangle>();
+        private Dictionary<Control, float> initialFontSizes = new Dictionary<Control, float>();
+        private int standardSizeX;
+        private int standardSizeY;
 
         public Form1()
         {
@@ -64,10 +66,14 @@ namespace DnD_Kampfverwaltung
             checkBoxes[18] = doubleTime19;
             checkBoxes[19] = doubleTime20;
 
-            //Fenstergröße für den Resize-Befehl speichern
+            //Fenstergröße & Positionen + Größen der Controls für den Resize-Befehl speichern
+            foreach (Control control in this.Controls)
+            {
+                initialFormSize[control] = control.Bounds;
+                initialFontSizes[control] = control.Font.Size;
+            }
             standardSizeX = this.Width;
             standardSizeY = this.Height;
-            fillList();
         }
 
         private void fightButton_Click(object sender, EventArgs e)
@@ -122,24 +128,18 @@ namespace DnD_Kampfverwaltung
 
         private void Form1_Resize(object sender, EventArgs e)
         {
-            float factorX = this.Width / standardSizeX;
-            float factorY = this.Height / standardSizeY;
-            foreach (Control a in controlList)
-            {
-                a.Size = new Size((int)(a.Width * factorX), (int)(a.Height * factorY));
-                a.Text = "TEST";
-            }
-        }
+            float scaleX = (float)this.Size.Width / (float)standardSizeX;
+            float scaleY = (float)this.Size.Height / (float)standardSizeY;
 
-        private void fillList()
-        {
-            foreach (TextBox a in textBoxes)
+            foreach (Control control in this.Controls)
             {
-                controlList.Add(a);
-            }
-            foreach (CheckBox a in checkBoxes)
-            {
-                controlList.Add(a);
+                control.Left = (int)(initialFormSize[control].Left * scaleX);
+                control.Top = (int)(initialFormSize[control].Top * scaleY);
+                control.Width = (int)(initialFormSize[control].Width * scaleX);
+                control.Height = (int)(initialFormSize[control].Height * scaleY);
+
+                float currentSize = initialFontSizes[control];
+                control.Font = new Font(control.Font.FontFamily, currentSize * Math.Min(scaleX, scaleY));
             }
         }
     }
