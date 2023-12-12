@@ -201,5 +201,10 @@ namespace DnD_Kampfverwaltung
         {
             resize();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
