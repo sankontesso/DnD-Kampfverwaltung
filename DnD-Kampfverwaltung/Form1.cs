@@ -75,7 +75,6 @@ namespace DnD_Kampfverwaltung
             }
             standardSizeX = this.Width;
             standardSizeY = this.Height;
-            resize();
         }
 
         private void fightButton_Click(object sender, EventArgs e)
