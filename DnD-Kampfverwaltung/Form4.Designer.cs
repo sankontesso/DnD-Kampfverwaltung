@@ -29,44 +29,14 @@
         private void InitializeComponent()
         {
             comboBox1 = new ComboBox();
-            checkBox1 = new CheckBox();
-            label1 = new Label();
-            label2 = new Label();
-            checkBox2 = new CheckBox();
-            label3 = new Label();
-            checkBox3 = new CheckBox();
-            label4 = new Label();
-            checkBox4 = new CheckBox();
-            label5 = new Label();
-            checkBox5 = new CheckBox();
-            label6 = new Label();
-            checkBox6 = new CheckBox();
-            label7 = new Label();
-            checkBox7 = new CheckBox();
-            label8 = new Label();
-            checkBox8 = new CheckBox();
-            label9 = new Label();
-            checkBox9 = new CheckBox();
-            label10 = new Label();
-            checkBox10 = new CheckBox();
-            label11 = new Label();
-            checkBox11 = new CheckBox();
-            label12 = new Label();
-            checkBox12 = new CheckBox();
-            label13 = new Label();
-            checkBox13 = new CheckBox();
-            label14 = new Label();
-            checkBox14 = new CheckBox();
-            label15 = new Label();
-            checkBox15 = new CheckBox();
             SuspendLayout();
             // 
-            // comboBox1
+            // playerComboBox
             // 
             comboBox1.FormattingEnabled = true;
             comboBox1.Location = new Point(12, 12);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(201, 23);
+            comboBox1.Size = new Size(121, 23);
             comboBox1.TabIndex = 0;
             // 
             // checkBox1
@@ -341,39 +311,9 @@
             // 
             // Form4
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(226, 271);
-            Controls.Add(label15);
-            Controls.Add(checkBox15);
-            Controls.Add(label14);
-            Controls.Add(checkBox14);
-            Controls.Add(label13);
-            Controls.Add(checkBox13);
-            Controls.Add(label12);
-            Controls.Add(checkBox12);
-            Controls.Add(label11);
-            Controls.Add(checkBox11);
-            Controls.Add(label10);
-            Controls.Add(checkBox10);
-            Controls.Add(label9);
-            Controls.Add(checkBox9);
-            Controls.Add(label8);
-            Controls.Add(checkBox8);
-            Controls.Add(label7);
-            Controls.Add(checkBox7);
-            Controls.Add(label6);
-            Controls.Add(checkBox6);
-            Controls.Add(label5);
-            Controls.Add(checkBox5);
-            Controls.Add(label4);
-            Controls.Add(checkBox4);
-            Controls.Add(label3);
-            Controls.Add(checkBox3);
-            Controls.Add(label2);
-            Controls.Add(checkBox2);
-            Controls.Add(label1);
-            Controls.Add(checkBox1);
+            ClientSize = new Size(800, 450);
             Controls.Add(comboBox1);
             Name = "Form4";
             Text = "Form4";
@@ -384,35 +324,5 @@
         #endregion
 
         private ComboBox comboBox1;
-        private CheckBox checkBox1;
-        private Label label1;
-        private Label label2;
-        private CheckBox checkBox2;
-        private Label label3;
-        private CheckBox checkBox3;
-        private Label label4;
-        private CheckBox checkBox4;
-        private Label label5;
-        private CheckBox checkBox5;
-        private Label label6;
-        private CheckBox checkBox6;
-        private Label label7;
-        private CheckBox checkBox7;
-        private Label label8;
-        private CheckBox checkBox8;
-        private Label label9;
-        private CheckBox checkBox9;
-        private Label label10;
-        private CheckBox checkBox10;
-        private Label label11;
-        private CheckBox checkBox11;
-        private Label label12;
-        private CheckBox checkBox12;
-        private Label label13;
-        private CheckBox checkBox13;
-        private Label label14;
-        private CheckBox checkBox14;
-        private Label label15;
-        private CheckBox checkBox15;
     }
 }

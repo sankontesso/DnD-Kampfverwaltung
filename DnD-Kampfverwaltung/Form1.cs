@@ -75,7 +75,6 @@ namespace DnD_Kampfverwaltung
             }
             standardSizeX = this.Width;
             standardSizeY = this.Height;
-            resize();
         }
 
         private void fightButton_Click(object sender, EventArgs e)
@@ -135,6 +134,7 @@ namespace DnD_Kampfverwaltung
 
             foreach (Control control in this.Controls)
             {
+                //Position und Größe der Controls anhand der Fensterskalierung und Startgröße neu definieren
                 control.Left = (int)(initialFormSize[control].Left * scaleX);
                 control.Top = (int)(initialFormSize[control].Top * scaleY);
                 control.Width = (int)(initialFormSize[control].Width * scaleX);
