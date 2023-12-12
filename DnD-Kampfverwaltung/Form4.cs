@@ -15,6 +15,12 @@ namespace DnD_Kampfverwaltung
         public Form4()
         {
             InitializeComponent();
+            fillPlayerComboBox();
+        }
+
+        private void fillPlayerComboBox()
+        {
+            playerComboBox.Items.Add("TEST");
         }
     }
 }
