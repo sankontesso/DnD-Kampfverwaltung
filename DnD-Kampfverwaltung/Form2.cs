@@ -16,14 +16,16 @@ namespace DnD_Kampfverwaltung
 {
     public partial class Form2 : Form
     {
+        //Variablen für Verwaltung
         private int counter; //Aktuelle Rundenzeit
         private int counterMax; //Standardrundenzeit
         private int blockTime = 0; //Zeit, die "Next" nach Betätigung geblockt wird (in Timer-Funktion festgelegt)
         private int activeFighter = 0; //Aktuelle Kämpfernummer
-        List<string> fighters; //Liste mit aktiven Kämpfern
-        List<bool> doubleTimes; //Liste mit Angaben ob Kämpfer doppelte Zugzeit erhält
         Label[] fighterLabels = new Label[5]; //Labels für die Ausgabe der Reihenfolge
         private int round = 1; //Rundenzähler
+
+        //Liste der Kämpfer
+        List<fighter> fighters = new List<fighter>();
 
         //Variablen für das Resizing
         private Dictionary<Control, Rectangle> initialFormSize = new Dictionary<Control, Rectangle>();
@@ -31,19 +33,20 @@ namespace DnD_Kampfverwaltung
         private int standardSizeX;
         private int standardSizeY;
 
-        public Form2(List<string> fighters, List<bool> doubleTimes, string timePerRound)
+        public Form2(List<fighter> fighters, int timePerRound)
         {
             InitializeComponent();
             //Wenn Rundenzeit angegeben, passe Werte an
-            counterMax = 10 * int.Parse(timePerRound);
+            counterMax = 10 * timePerRound;
             this.fighters = fighters;
-            this.doubleTimes = doubleTimes;
+
             //Labels dem Array hinzufügen
             fighterLabels[0] = activeLabel;
             fighterLabels[1] = secondLabel;
             fighterLabels[2] = thirdLabel;
             fighterLabels[3] = fourthLabel;
             fighterLabels[4] = fifthLabel;
+
             //Starte den Kampf
             startBattle();
 
@@ -62,10 +65,10 @@ namespace DnD_Kampfverwaltung
         {
             this.Text = "W2.0 Kampf";
             //Einmalige Ausführung zum Starten des Kampfes
-            activeLabel.Text = fighters[0];
+            activeLabel.Text = fighters[0].name;
             counter = counterMax;
             //Prüfung und ggf. Verdoppelung von Zugzeiten
-            if (doubleTimes[(activeFighter) % doubleTimes.Count()]) counter = counter * 2;
+            if (fighters[(activeFighter) % fighters.Count()].doubleTime) counter = counter * 2;
             //Eintragung der Zugzeit und Start des Timers
             timeLabel.Text = seconds_to_minutes(counter);
             timer1.Start();
@@ -81,7 +84,7 @@ namespace DnD_Kampfverwaltung
                 fighterLabels[i].Text = "";
                 if (i < fighters.Count())
                 {
-                    fighterLabels[i].Text = fighters[(i + activeFighter) % fighters.Count()];
+                    fighterLabels[i].Text = fighters[(i + activeFighter) % fighters.Count()].name;
                 }
             }
         }
@@ -93,6 +96,7 @@ namespace DnD_Kampfverwaltung
             {
                 //Nächster Kampfteilnehmer
                 activeFighter++;
+
                 //Rundenzähler aktualisieren
                 if (activeFighter >= fighters.Count)
                 {
@@ -100,14 +104,15 @@ namespace DnD_Kampfverwaltung
                     round++;
                     roundsLabel.Text = "Runde: " + round + ", Kampfdauer: " + (round - 1) * 6 + "s";
                 }
+
                 //Timer zurücksetzen und Reihenfolge passend anzeigen
                 timer1.Stop();
                 showOrder();
                 counter = counterMax;
-                //Blocktime runterzählen
+                //Blocktime zurücksetzen (x * 100ms)
                 blockTime = 5;
                 //Ggf. Zugzeit verdoppeln
-                if (doubleTimes[activeFighter % doubleTimes.Count()]) counter = counter * 2;
+                if (fighters[activeFighter % fighters.Count()].doubleTime) counter = counter * 2;
                 timeLabel.Text = seconds_to_minutes(counter);
                 timer1.Start();
             }
@@ -123,7 +128,6 @@ namespace DnD_Kampfverwaltung
             if (fighters.Count() > 1) //Wenn mehr als 1 Kämpfer aktiv, entferne Kämpfer
             {
                 fighters.RemoveAt(activeFighter % fighters.Count());
-                doubleTimes.RemoveAt(activeFighter % doubleTimes.Count());
             }
             else //Sonst schließe das Kampfsystem
             {
@@ -154,7 +158,8 @@ namespace DnD_Kampfverwaltung
             }
             //Formatierung der restlichen Ausgabe
             minutes += "" + seconds / 60 + ":";
-            if (seconds % 60 < 10) minutes += "0"; //Sonst einstellige Sekundenausgabe
+            //Bei einstelliger Sekundenausgabe eine Null vorstellen
+            if (seconds % 60 < 10) minutes += "0"; 
             minutes += seconds % 60;
             return minutes;
         }
@@ -174,17 +179,19 @@ namespace DnD_Kampfverwaltung
             //Wenn Textfeld nicht leer und Dialog bestätigt
             if (dialogResult == DialogResult.OK && dialog.newFighter.Text != "" && dialog.newFighter.Text != " ")
             {
-                fighters.Insert(activeFighter + 1, dialog.newFighter.Text); //Kämpfer der Liste hinzufügen
-                doubleTimes.Insert(activeFighter + 1, dialog.checkBox1.Checked); //Eintragung ob Zugzeit verdoppelt wird
+                //Kämpfer der Liste hinzufügen
+                fighters.Insert(activeFighter + 1, new fighter(dialog.newFighter.Text, dialog.checkBox1.Checked));
                 showOrder(); //Neue Reihenfolge anzeigen
             }
         }
 
         private void resize()
         {
+            //Skalierungsfaktor bestimmen
             float scaleX = (float)this.Size.Width / (float)standardSizeX;
             float scaleY = (float)this.Size.Height / (float)standardSizeY;
 
+            //Alle Positionen, Größen und Schriftgrößen anpassen
             foreach (Control control in this.Controls)
             {
                 control.Left = (int)(initialFormSize[control].Left * scaleX);
@@ -204,7 +211,10 @@ namespace DnD_Kampfverwaltung
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            //Dialog generieren
+            Form4 dialog = new Form4(fighters);
+            dialog.acceptButton.DialogResult = DialogResult.OK;
+            DialogResult dialogResult = dialog.ShowDialog();
         }
     }
 }

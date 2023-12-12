@@ -12,20 +12,64 @@ namespace DnD_Kampfverwaltung
 {
     public partial class Form4 : Form
     {
-        List<String> fighters;
-        public Form4(List<String> fighters)
+        List<fighter> fighters = new List<fighter>();
+
+        //Variablen für das Resizing
+        private Dictionary<Control, Rectangle> initialFormSize = new Dictionary<Control, Rectangle>();
+        private Dictionary<Control, float> initialFontSizes = new Dictionary<Control, float>();
+        private int standardSizeX;
+        private int standardSizeY;
+
+        public Form4(List<fighter> fighters)
         {
             InitializeComponent();
+            this.Text = "Statusverwaltung";
             this.fighters = fighters;
-            fillPlayerComboBox();
+            foreach (fighter a in fighters)
+            {
+                comboBox1.Items.Add(a.name);
+            }
+            comboBox1.SelectedIndex = 0;
+
+            //Fenstergröße & Positionen + Größen der Controls für den Resize-Befehl speichern
+            foreach (Control control in this.Controls)
+            {
+                initialFormSize[control] = control.Bounds;
+                initialFontSizes[control] = control.Font.Size;
+            }
+            standardSizeX = this.Width;
+            standardSizeY = this.Height;
+            resize();
         }
 
-        private void fillPlayerComboBox()
+        private void resize()
         {
-            foreach(String fighter in fighters)
+            //Skalierungsfaktor bestimmen
+            float scaleX = (float)this.Size.Width / (float)standardSizeX;
+            float scaleY = (float)this.Size.Height / (float)standardSizeY;
+
+            //Alle Positionen, Größen und Schriftgrößen anpassen
+            foreach (Control control in this.Controls)
             {
-                playerComboBox.Items.Add(fighter);
+                control.Left = (int)(initialFormSize[control].Left * scaleX);
+                control.Top = (int)(initialFormSize[control].Top * scaleY);
+                control.Width = (int)(initialFormSize[control].Width * scaleX);
+                control.Height = (int)(initialFormSize[control].Height * scaleY);
+
+                float currentSize = initialFontSizes[control];
+                control.Font = new Font(control.Font.FontFamily, currentSize * Math.Min(scaleX, scaleY));
             }
+        }
+
+        private void Form4_Resize(object sender, EventArgs e)
+        {
+            resize();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Hier die Checkboxen anpassen anhand der Werte im Kämpfer
+
         }
     }
 }

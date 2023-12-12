@@ -6,8 +6,9 @@ namespace DnD_Kampfverwaltung
 {
     public partial class Form1 : Form
     {
-        List<string> fighters = new List<string>();
-        List<bool> doubleTimes = new List<bool>();
+        //Liste mit den Kämpfern und ihren Werten
+        List<fighter> fighters = new List<fighter>();
+
         TextBox[] textBoxes = new TextBox[20];
         CheckBox[] checkBoxes = new CheckBox[20];
         public int counter = 0;
@@ -81,7 +82,6 @@ namespace DnD_Kampfverwaltung
         {
             //Leere die Listen
             fighters.Clear();
-            doubleTimes.Clear();
             counter = 0;
 
             //Füge Kämpfer in die Liste
@@ -96,16 +96,16 @@ namespace DnD_Kampfverwaltung
             }
 
             //Check ob Kampf gestartet wird, nur wenn min. 2 Kämpfer eingetragen sind und Zugzeit leer oder Zahl ist
-            if (fighters.Count >= 2 && (int.TryParse(timePerRound.Text, out int number2) || timePerRound.Text == ""))
+            if (fighters.Count >= 2 && (int.TryParse(timePerRound.Text, out int time) || timePerRound.Text == ""))
             {
                 if (timePerRound.Text == "") //Wenn keine Rundenzeit angegeben, wähle Standardwert (120s)
                 {
-                    Form2 scene = new Form2(fighters, doubleTimes, "120");
+                    Form2 scene = new Form2(fighters, 120);
                     scene.Show();
                 }
                 else //Sonst angegebene Zugzeit wählen
                 {
-                    Form2 scene = new Form2(fighters, doubleTimes, timePerRound.Text);
+                    Form2 scene = new Form2(fighters, time);
                     scene.Show();
                 }
             }
@@ -114,8 +114,7 @@ namespace DnD_Kampfverwaltung
         public void addFighter(string fighter, bool doubleTime)
         {
             //Neuen Kämpfer (inklusive Angabe der Zeitverlängerung) hinzufügen
-            fighters.Add(fighter);
-            doubleTimes.Add(doubleTime);
+            fighters.Add(new fighter(fighter, doubleTime));
             counter++;
         }
 
@@ -129,12 +128,13 @@ namespace DnD_Kampfverwaltung
 
         private void resize()
         {
+            //Skalierungsfaktor bestimmen
             float scaleX = (float)this.Size.Width / (float)standardSizeX;
             float scaleY = (float)this.Size.Height / (float)standardSizeY;
 
+            //Alle Positionen, Größen und Schriftgrößen anpassen
             foreach (Control control in this.Controls)
             {
-                //Position und Größe der Controls anhand der Fensterskalierung und Startgröße neu definieren
                 control.Left = (int)(initialFormSize[control].Left * scaleX);
                 control.Top = (int)(initialFormSize[control].Top * scaleY);
                 control.Width = (int)(initialFormSize[control].Width * scaleX);
