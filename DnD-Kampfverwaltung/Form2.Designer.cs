@@ -185,7 +185,7 @@
             statusButton.TabIndex = 27;
             statusButton.Text = "Status";
             statusButton.UseVisualStyleBackColor = true;
-            statusButton.Click += button1_Click;
+            statusButton.Click += statusButton_Click;
             // 
             // Form2
             // 

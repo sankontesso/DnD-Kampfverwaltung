@@ -10,30 +10,27 @@ namespace DnD_Kampfverwaltung
     {
         public string name;
         public bool doubleTime;
-        public Dictionary<string, bool> statuses = new Dictionary<string, bool>();
+        public Dictionary<string, (string, bool)> statuses = new Dictionary<string, (string, bool)>();
+        public int exhaustion = 0;
 
         public fighter(string name, bool doubleTime){
             this.name = name;
             this.doubleTime = doubleTime;
 
-            statuses.Add("Blinded", false);
-            statuses.Add("Charmed", true);
-            statuses.Add("Deafened", false);
-            statuses.Add("Frightened", false);
-            statuses.Add("Grappled", false);
-            statuses.Add("Incapacitated", false);
-            statuses.Add("Invisible", false);
-            statuses.Add("Paralyzed", false);
-            statuses.Add("Petrified", false);
-            statuses.Add("Poisened", false);
-            statuses.Add("Prone", false);
-            statuses.Add("Restrained", false);
-            statuses.Add("Stunned", false);
-            statuses.Add("Unconscious", false);
-            statuses.Add("Exhaustion Lvl 2", false);
-            statuses.Add("Exhaustion Lvl 3", false);
-            statuses.Add("Exhaustion Lvl 4", false);
-            statuses.Add("Exhaustion Lvl 5", false);
+            statuses.Add("blinded", ("Geblendet", false));
+            statuses.Add("charmed", ("Bezaubert", false));
+            statuses.Add("deafend", ("Taub", false));
+            statuses.Add("frightened", ("Verängstigt", false));
+            statuses.Add("grappled", ("Gepackt", false));
+            statuses.Add("incapacitated", ("Kampfunfähig", false));
+            statuses.Add("invisible", ("Unsichtbar", false));
+            statuses.Add("paralyzed", ("Gelähmt", false));
+            statuses.Add("petrified", ("Versteinert", false));
+            statuses.Add("poisened", ("Vergiftet", false));
+            statuses.Add("prone", ("Liegend", false));
+            statuses.Add("restrained", ("Festgesetzt", false));
+            statuses.Add("stunned", ("Betäubt", false));
+            statuses.Add("unconscious", ("Bewusstlos", false));
         }
     }
 }

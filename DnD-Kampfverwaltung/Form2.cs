@@ -209,12 +209,15 @@ namespace DnD_Kampfverwaltung
             resize();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void statusButton_Click(object sender, EventArgs e)
         {
             //Dialog generieren
             Form4 dialog = new Form4(fighters);
             dialog.acceptButton.DialogResult = DialogResult.OK;
             DialogResult dialogResult = dialog.ShowDialog();
+
+            //Übernahme der Werte vom zuletzt ausgewählten Kämpfer
+            dialog.checkboxesToFighter();
         }
     }
 }

@@ -13,6 +13,8 @@ namespace DnD_Kampfverwaltung
     public partial class Form4 : Form
     {
         List<fighter> fighters = new List<fighter>();
+        Dictionary<string, CheckBox> checkBoxes = new Dictionary<string, CheckBox>();
+        fighter activeFighter;
 
         //Variablen für das Resizing
         private Dictionary<Control, Rectangle> initialFormSize = new Dictionary<Control, Rectangle>();
@@ -25,11 +27,17 @@ namespace DnD_Kampfverwaltung
             InitializeComponent();
             this.Text = "Statusverwaltung";
             this.fighters = fighters;
+
+            //Comboboxmöglichkeiten hinzufügen
             foreach (fighter a in fighters)
             {
                 comboBox1.Items.Add(a.name);
             }
             comboBox1.SelectedIndex = 0;
+            activeFighter = fighters[0];
+
+            //Checkboxes anhand der Statusmöglichkeiten in fighter.cs generieren
+            addCheckBoxes();
 
             //Fenstergröße & Positionen + Größen der Controls für den Resize-Befehl speichern
             foreach (Control control in this.Controls)
@@ -39,7 +47,9 @@ namespace DnD_Kampfverwaltung
             }
             standardSizeX = this.Width;
             standardSizeY = this.Height;
-            resize();
+
+            //namen des aktiven Kämpfer anwählen
+            activeFighter = fighters[0];
         }
 
         private void resize()
@@ -61,15 +71,68 @@ namespace DnD_Kampfverwaltung
             }
         }
 
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Auswahl des Kämpfers in der Combobox
+            checkboxesToFighter();
+            foreach(fighter f in fighters)
+            {
+                if (f.name == comboBox1.Text) activeFighter = f;
+            }
+            fighterToCheckboxes();
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Hier die Erschöpfung ein bzw. auslesen
+        }
+
+        private void fighterToCheckboxes()
+        {
+            //Alle Checkboxen durchlaufen und an die Werte vom ausgewählten Kämpfer
+            foreach (var cb in checkBoxes)
+            {
+                cb.Value.Checked = activeFighter.statuses[cb.Key].Item2;
+            }
+
+            //Combobox für die Erschöpfung aktualisieren
+            //HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+        }
+
+        public void checkboxesToFighter()
+        {
+
+            //HIER NOCH TESTEN
+
+            foreach (var checkbox in checkBoxes)
+            {
+                string statusKey = checkbox.Key;
+                bool isChecked = checkbox.Value.Checked;
+
+                activeFighter.statuses[statusKey] = (activeFighter.statuses[statusKey].Item1, isChecked);
+            }
+        }
+
+        private void addCheckBoxes()
+        {
+            //Checkboxes anhand der Statusmöglichkeiten in fighter.cs generieren
+            fighter a = fighters[0];
+            int i = 0;
+            foreach (var status in a.statuses)
+            {
+                checkBoxes.Add(status.Key, new CheckBox());
+                checkBoxes[status.Key].Checked = status.Value.Item2;
+                checkBoxes[status.Key].Text = status.Value.Item1;
+                checkBoxes[status.Key].Size = new Size(140, 20);
+                checkBoxes[status.Key].Location = new Point(150 * (i % 3) + 20, 20 * (i / 3) + 40);
+                Controls.Add(checkBoxes[status.Key]);
+                i++;
+            }
+        }
+
         private void Form4_Resize(object sender, EventArgs e)
         {
             resize();
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //Hier die Checkboxen anpassen anhand der Werte im Kämpfer
-
         }
     }
 }
