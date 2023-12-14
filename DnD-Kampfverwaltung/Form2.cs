@@ -87,6 +87,18 @@ namespace DnD_Kampfverwaltung
                     fighterLabels[i].Text = fighters[(i + activeFighter) % fighters.Count()].name;
                 }
             }
+
+            //Aktuelle Statusveränderungen anzeigen
+            string statusList = "";
+            foreach (var st in fighters[(activeFighter) % fighters.Count()].statuses)
+            {
+                if (st.Value.Item2)
+                {
+                    if (statusList != "") statusList += ", ";
+                    statusList += st.Value.Item1;
+                }
+            }
+            statusLabel.Text = statusList;
         }
 
         private void nextFighter()
@@ -109,8 +121,10 @@ namespace DnD_Kampfverwaltung
                 timer1.Stop();
                 showOrder();
                 counter = counterMax;
+
                 //Blocktime zurücksetzen (x * 100ms)
                 blockTime = 5;
+
                 //Ggf. Zugzeit verdoppeln
                 if (fighters[activeFighter % fighters.Count()].doubleTime) counter = counter * 2;
                 timeLabel.Text = seconds_to_minutes(counter);
@@ -150,16 +164,19 @@ namespace DnD_Kampfverwaltung
             string minutes = "";
             //Umrechnen, weil Timerintervall 100ms sind
             seconds = seconds / 10;
+
             //Wenn negative Zeit, das "-" vor die Ausgabe setzen
             if (seconds < 0)
             {
                 minutes = "-";
                 seconds = -seconds;
             }
+
             //Formatierung der restlichen Ausgabe
             minutes += "" + seconds / 60 + ":";
+
             //Bei einstelliger Sekundenausgabe eine Null vorstellen
-            if (seconds % 60 < 10) minutes += "0"; 
+            if (seconds % 60 < 10) minutes += "0";
             minutes += seconds % 60;
             return minutes;
         }
@@ -176,6 +193,7 @@ namespace DnD_Kampfverwaltung
             Form3 dialog = new Form3();
             dialog.addButton.DialogResult = DialogResult.OK;
             DialogResult dialogResult = dialog.ShowDialog();
+
             //Wenn Textfeld nicht leer und Dialog bestätigt
             if (dialogResult == DialogResult.OK && dialog.newFighter.Text != "" && dialog.newFighter.Text != " ")
             {
@@ -200,8 +218,15 @@ namespace DnD_Kampfverwaltung
                 control.Height = (int)(initialFormSize[control].Height * scaleY);
 
                 float currentSize = initialFontSizes[control];
-                control.Font = new Font(control.Font.FontFamily, currentSize * Math.Min(scaleX, scaleY));
+                control.Font = new Font(control.Font.FontFamily, currentSize * Math.Min(scaleX, scaleY), control.Font.Style);
             }
+
+            //Label Inhalte anpassen
+            
+
+
+
+            // AÖKJURHFUIWJKÖANFUJIKAÖWBGKAWJUBGN_OKLÖIANBG-kjaNNGKJIL_NG_ÖÄKLIAJW
         }
 
         private void Form2_Resize(object sender, EventArgs e)
@@ -218,6 +243,9 @@ namespace DnD_Kampfverwaltung
 
             //Übernahme der Werte vom zuletzt ausgewählten Kämpfer
             dialog.checkboxesToFighter();
+
+            //Zeige die aktualisierten Werte an
+            showOrder();
         }
     }
 }

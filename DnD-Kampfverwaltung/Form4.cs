@@ -84,7 +84,28 @@ namespace DnD_Kampfverwaltung
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Hier die Erschöpfung ein bzw. auslesen
+            //Erschöpfung anhand der Combobox aktualisieren
+            switch (comboBox2.SelectedIndex)
+            {
+                case 0:
+                    activeFighter.exhaustion = 0;
+                    break;
+                case 1:
+                    activeFighter.exhaustion = 1;
+                    break;
+                case 2:
+                    activeFighter.exhaustion = 2;
+                    break;
+                case 3:
+                    activeFighter.exhaustion = 3;
+                    break;
+                case 4:
+                    activeFighter.exhaustion = 4;
+                    break;
+                case 5:
+                    activeFighter.exhaustion = 5;
+                    break;
+            }
         }
 
         private void fighterToCheckboxes()
@@ -95,21 +116,36 @@ namespace DnD_Kampfverwaltung
                 cb.Value.Checked = activeFighter.statuses[cb.Key].Item2;
             }
 
-            //Combobox für die Erschöpfung aktualisieren
-            //HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+            //Combobox anhand der Erschöpfung aktualisieren
+            switch (activeFighter.exhaustion)
+            {
+                case 0:
+                    comboBox2.SelectedIndex = 0;
+                    break;
+                case 1:
+                    comboBox2.SelectedIndex = 1;
+                    break;
+                case 2:
+                    comboBox2.SelectedIndex = 2;
+                    break;
+                case 3:
+                    comboBox2.SelectedIndex = 3;
+                    break;
+                case 4:
+                    comboBox2.SelectedIndex = 4;
+                    break;
+                case 5:
+                    comboBox2.SelectedIndex = 5;
+                    break;
+            }
         }
 
         public void checkboxesToFighter()
         {
-
-            //HIER NOCH TESTEN
-
-            foreach (var checkbox in checkBoxes)
+            //Speichert die Werte der Checkboxen in den aktiven Kämpfer
+            foreach (var cb in checkBoxes)
             {
-                string statusKey = checkbox.Key;
-                bool isChecked = checkbox.Value.Checked;
-
-                activeFighter.statuses[statusKey] = (activeFighter.statuses[statusKey].Item1, isChecked);
+                activeFighter.statuses[cb.Key] = (activeFighter.statuses[cb.Key].Item1, cb.Value.Checked);
             }
         }
 
