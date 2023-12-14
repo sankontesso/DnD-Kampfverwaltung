@@ -22,7 +22,7 @@ namespace DnD_Kampfverwaltung
         private int standardSizeX;
         private int standardSizeY;
 
-        public Form4(List<fighter> fighters)
+        public Form4(List<fighter> fighters, int f)
         {
             InitializeComponent();
             this.Text = "Statusverwaltung";
@@ -33,7 +33,7 @@ namespace DnD_Kampfverwaltung
             {
                 comboBox1.Items.Add(a.name);
             }
-            comboBox1.SelectedIndex = 0;
+            comboBox1.SelectedIndex = f;
             activeFighter = fighters[0];
 
             //Checkboxes anhand der Statusmöglichkeiten in fighter.cs generieren

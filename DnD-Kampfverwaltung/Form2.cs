@@ -222,7 +222,7 @@ namespace DnD_Kampfverwaltung
             }
 
             //Label Inhalte anpassen
-            
+
 
 
 
@@ -237,7 +237,7 @@ namespace DnD_Kampfverwaltung
         private void statusButton_Click(object sender, EventArgs e)
         {
             //Dialog generieren
-            Form4 dialog = new Form4(fighters);
+            Form4 dialog = new Form4(fighters, activeFighter);
             dialog.acceptButton.DialogResult = DialogResult.OK;
             DialogResult dialogResult = dialog.ShowDialog();
 
