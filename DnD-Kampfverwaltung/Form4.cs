@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,7 +23,7 @@ namespace DnD_Kampfverwaltung
         private int standardSizeX;
         private int standardSizeY;
 
-        public Form4(List<fighter> fighters, int f)
+        public Form4(List<fighter> fighters, int fighterNumber)
         {
             InitializeComponent();
             this.Text = "Statusverwaltung";
@@ -33,11 +34,16 @@ namespace DnD_Kampfverwaltung
             {
                 comboBox1.Items.Add(a.name);
             }
-            comboBox1.SelectedIndex = f;
-            activeFighter = fighters[0];
+
+            //Aktuellen Kämpfer auswählen
+            comboBox1.SelectedIndex = fighterNumber;
+            activeFighter = fighters[fighterNumber];
 
             //Checkboxes anhand der Statusmöglichkeiten in fighter.cs generieren
             addCheckBoxes();
+
+            //Daten des aktuellen Kämpfers anzeigen
+            fighterToCheckboxes();
 
             //Fenstergröße & Positionen + Größen der Controls für den Resize-Befehl speichern
             foreach (Control control in this.Controls)
@@ -47,39 +53,22 @@ namespace DnD_Kampfverwaltung
             }
             standardSizeX = this.Width;
             standardSizeY = this.Height;
-
-            //namen des aktiven Kämpfer anwählen
-            activeFighter = fighters[0];
-        }
-
-        private void resize()
-        {
-            //Skalierungsfaktor bestimmen
-            float scaleX = (float)this.Size.Width / (float)standardSizeX;
-            float scaleY = (float)this.Size.Height / (float)standardSizeY;
-
-            //Alle Positionen, Größen und Schriftgrößen anpassen
-            foreach (Control control in this.Controls)
-            {
-                control.Left = (int)(initialFormSize[control].Left * scaleX);
-                control.Top = (int)(initialFormSize[control].Top * scaleY);
-                control.Width = (int)(initialFormSize[control].Width * scaleX);
-                control.Height = (int)(initialFormSize[control].Height * scaleY);
-
-                float currentSize = initialFontSizes[control];
-                control.Font = new Font(control.Font.FontFamily, currentSize * Math.Min(scaleX, scaleY));
-            }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Auswahl des Kämpfers in der Combobox
             checkboxesToFighter();
-            foreach(fighter f in fighters)
-            {
-                if (f.name == comboBox1.Text) activeFighter = f;
-            }
+            setActiveFighter();
             fighterToCheckboxes();
+        }
+
+        private void setActiveFighter()
+        {
+            foreach (fighter f in fighters)
+            {
+                if (f.name == comboBox1.SelectedItem.ToString()) activeFighter = f;
+            }
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -149,6 +138,23 @@ namespace DnD_Kampfverwaltung
             }
         }
 
+        private void acceptButton_Click(object sender, EventArgs e)
+        {
+            checkboxesToFighter();
+        }
+
+        private void resetButton_Click(object sender, EventArgs e)
+        {
+            //Alle Checkboxen zurücksetzen
+            foreach (var cb in checkBoxes)
+            {
+                cb.Value.Checked = false;
+            }
+            //Kämpferdaten an Checkboxen anpassen und Erschöpfung entfernen
+            checkboxesToFighter();
+            activeFighter.exhaustion = 0;
+        }
+
         private void addCheckBoxes()
         {
             //Checkboxes anhand der Statusmöglichkeiten in fighter.cs generieren
@@ -169,6 +175,25 @@ namespace DnD_Kampfverwaltung
         private void Form4_Resize(object sender, EventArgs e)
         {
             resize();
+        }
+
+        private void resize()
+        {
+            //Skalierungsfaktor bestimmen
+            float scaleX = (float)this.Size.Width / (float)standardSizeX;
+            float scaleY = (float)this.Size.Height / (float)standardSizeY;
+
+            //Alle Positionen, Größen und Schriftgrößen anpassen
+            foreach (Control control in this.Controls)
+            {
+                control.Left = (int)(initialFormSize[control].Left * scaleX);
+                control.Top = (int)(initialFormSize[control].Top * scaleY);
+                control.Width = (int)(initialFormSize[control].Width * scaleX);
+                control.Height = (int)(initialFormSize[control].Height * scaleY);
+
+                float currentSize = initialFontSizes[control];
+                control.Font = new Font(control.Font.FontFamily, currentSize * Math.Min(scaleX, scaleY));
+            }
         }
     }
 }

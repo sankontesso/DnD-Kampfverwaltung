@@ -32,6 +32,7 @@
             comboBox1 = new ComboBox();
             acceptButton = new Button();
             comboBox2 = new ComboBox();
+            resetButton = new Button();
             SuspendLayout();
             // 
             // comboBox1
@@ -52,6 +53,7 @@
             acceptButton.TabIndex = 2;
             acceptButton.Text = "Akzeptieren";
             acceptButton.UseVisualStyleBackColor = true;
+            acceptButton.Click += acceptButton_Click;
             // 
             // comboBox2
             // 
@@ -63,11 +65,23 @@
             comboBox2.TabIndex = 3;
             comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
             // 
+            // resetButton
+            // 
+            resetButton.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            resetButton.Location = new Point(363, 141);
+            resetButton.Name = "resetButton";
+            resetButton.Size = new Size(78, 48);
+            resetButton.TabIndex = 4;
+            resetButton.Text = "Reset";
+            resetButton.UseVisualStyleBackColor = true;
+            resetButton.Click += resetButton_Click;
+            // 
             // Form4
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(453, 196);
+            Controls.Add(resetButton);
             Controls.Add(comboBox2);
             Controls.Add(acceptButton);
             Controls.Add(comboBox1);
@@ -82,5 +96,6 @@
         public ComboBox comboBox1;
         public Button acceptButton;
         public ComboBox comboBox2;
+        public Button resetButton;
     }
 }

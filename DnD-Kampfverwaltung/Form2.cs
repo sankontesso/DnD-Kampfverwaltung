@@ -7,8 +7,10 @@ using System.Diagnostics.Metrics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 
@@ -19,8 +21,8 @@ namespace DnD_Kampfverwaltung
         //Variablen für Verwaltung
         private int counter; //Aktuelle Rundenzeit
         private int counterMax; //Standardrundenzeit
-        private int blockTime = 0; //Zeit, die "Next" nach Betätigung geblockt wird (in Timer-Funktion festgelegt)
-        private int activeFighter = 0; //Aktuelle Kämpfernummer
+        private int blockTime; //Zeit, die "Next" nach Betätigung geblockt wird (in Timer-Funktion festgelegt)
+        private int activeFighter; //Aktuelle Kämpfernummer
         Label[] fighterLabels = new Label[5]; //Labels für die Ausgabe der Reihenfolge
         private int round = 1; //Rundenzähler
 
@@ -39,6 +41,7 @@ namespace DnD_Kampfverwaltung
             //Wenn Rundenzeit angegeben, passe Werte an
             counterMax = 10 * timePerRound;
             this.fighters = fighters;
+            this.Text = "W2.0 Kampf";
 
             //Labels dem Array hinzufügen
             fighterLabels[0] = activeLabel;
@@ -46,9 +49,6 @@ namespace DnD_Kampfverwaltung
             fighterLabels[2] = thirdLabel;
             fighterLabels[3] = fourthLabel;
             fighterLabels[4] = fifthLabel;
-
-            //Starte den Kampf
-            startBattle();
 
             //Fenstergröße & Positionen + Größen der Controls für den Resize-Befehl speichern
             foreach (Control control in this.Controls)
@@ -59,16 +59,18 @@ namespace DnD_Kampfverwaltung
             standardSizeX = this.Width;
             standardSizeY = this.Height;
             resize();
+
+            //Starte den Kampf
+            startBattle();
         }
 
         private void startBattle()
         {
-            this.Text = "W2.0 Kampf";
             //Einmalige Ausführung zum Starten des Kampfes
             activeLabel.Text = fighters[0].name;
             counter = counterMax;
             //Prüfung und ggf. Verdoppelung von Zugzeiten
-            if (fighters[(activeFighter) % fighters.Count()].doubleTime) counter = counter * 2;
+            if (fighters[activeFighter].doubleTime) counter = counter * 2;
             //Eintragung der Zugzeit und Start des Timers
             timeLabel.Text = seconds_to_minutes(counter);
             timer1.Start();
@@ -79,18 +81,16 @@ namespace DnD_Kampfverwaltung
         private void showOrder()
         {
             //Liste durchgehen und aktive Kämpfer in Reihenfolge anzeigen
+            int fighterCount = fighters.Count();
             for (int i = 0; i < fighterLabels.Count(); i++)
             {
                 fighterLabels[i].Text = "";
-                if (i < fighters.Count())
-                {
-                    fighterLabels[i].Text = fighters[(i + activeFighter) % fighters.Count()].name;
-                }
+                if (i < fighters.Count()) fighterLabels[i].Text = fighters[(i + activeFighter) % fighterCount].name;
             }
 
-            //Aktuelle Statusveränderungen anzeigen
+            //Aktuelle Statusveränderungen dem Anzeigetext hinzufügen
             string statusList = "";
-            foreach (var st in fighters[(activeFighter) % fighters.Count()].statuses)
+            foreach (var st in fighters[activeFighter].statuses)
             {
                 if (st.Value.Item2)
                 {
@@ -98,6 +98,15 @@ namespace DnD_Kampfverwaltung
                     statusList += st.Value.Item1;
                 }
             }
+
+            //Erschöpfung dem Text hinzufügen
+            if (fighters[activeFighter].exhaustion > 0)
+            {
+                if (statusList != "") statusList += ", ";
+                statusList += "Erschöpfung Stufe " + fighters[activeFighter].exhaustion;
+            }
+
+            //Statustext an das Label übergeben
             statusLabel.Text = statusList;
         }
 
@@ -126,7 +135,7 @@ namespace DnD_Kampfverwaltung
                 blockTime = 5;
 
                 //Ggf. Zugzeit verdoppeln
-                if (fighters[activeFighter % fighters.Count()].doubleTime) counter = counter * 2;
+                if (fighters[activeFighter].doubleTime) counter = counter * 2;
                 timeLabel.Text = seconds_to_minutes(counter);
                 timer1.Start();
             }
@@ -141,7 +150,7 @@ namespace DnD_Kampfverwaltung
         {
             if (fighters.Count() > 1) //Wenn mehr als 1 Kämpfer aktiv, entferne Kämpfer
             {
-                fighters.RemoveAt(activeFighter % fighters.Count());
+                fighters.RemoveAt(activeFighter);
             }
             else //Sonst schließe das Kampfsystem
             {
@@ -222,12 +231,26 @@ namespace DnD_Kampfverwaltung
             }
 
             //Label Inhalte anpassen
-
-
-
-
-            // AÖKJURHFUIWJKÖANFUJIKAÖWBGKAWJUBGN_OKLÖIANBG-kjaNNGKJIL_NG_ÖÄKLIAJW
+            //foreach(Label l in fighterLabels) fitLabelToContent(l);
         }
+
+        /*private void fitLabelToContent(Label l)
+        {
+            int maxSize = l.MaximumSize.Width;
+
+            if (TextRenderer.MeasureText(l.Text, l.Font).Width <= maxSize) return;
+
+            string labelText = l.Text;
+            string textNumber = "..." + Regex.Replace(l.Text, "[^0-9]", "");
+
+            for (int i = 0; i < labelText.Length; i++) {
+                if(TextRenderer.MeasureText(labelText.Substring(i + 1) + textNumber, l.Font).Width >= maxSize)
+                {
+                    l.Text = Text.Substring(i) + textNumber;
+                    return;
+                }
+            }       
+        }*/
 
         private void Form2_Resize(object sender, EventArgs e)
         {
@@ -240,9 +263,6 @@ namespace DnD_Kampfverwaltung
             Form4 dialog = new Form4(fighters, activeFighter);
             dialog.acceptButton.DialogResult = DialogResult.OK;
             DialogResult dialogResult = dialog.ShowDialog();
-
-            //Übernahme der Werte vom zuletzt ausgewählten Kämpfer
-            dialog.checkboxesToFighter();
 
             //Zeige die aktualisierten Werte an
             showOrder();

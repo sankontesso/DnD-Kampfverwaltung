@@ -7,10 +7,10 @@ namespace DnD_Kampfverwaltung
     public partial class Form1 : Form
     {
         //Liste mit den Kämpfern und ihren Werten
-        List<fighter> fighters = new List<fighter>();
+        public List<fighter> fighters = new List<fighter>();
 
-        TextBox[] textBoxes = new TextBox[20];
-        CheckBox[] checkBoxes = new CheckBox[20];
+        private TextBox[] textBoxes = new TextBox[20];
+        private CheckBox[] checkBoxes = new CheckBox[20];
         public int counter = 0;
 
         //Variablen für das Resizing
@@ -24,49 +24,7 @@ namespace DnD_Kampfverwaltung
             InitializeComponent();
             this.Text = "W2.0 Kampfverwaltung";
 
-            //Namen-Textboxes
-            textBoxes[0] = textBox1;
-            textBoxes[1] = textBox2;
-            textBoxes[2] = textBox3;
-            textBoxes[3] = textBox4;
-            textBoxes[4] = textBox5;
-            textBoxes[5] = textBox6;
-            textBoxes[6] = textBox7;
-            textBoxes[7] = textBox8;
-            textBoxes[8] = textBox9;
-            textBoxes[9] = textBox10;
-            textBoxes[10] = textBox11;
-            textBoxes[11] = textBox12;
-            textBoxes[12] = textBox13;
-            textBoxes[13] = textBox14;
-            textBoxes[14] = textBox15;
-            textBoxes[15] = textBox16;
-            textBoxes[16] = textBox17;
-            textBoxes[17] = textBox18;
-            textBoxes[18] = textBox19;
-            textBoxes[19] = textBox20;
-
-            //Zugzeiten-Checkboxes
-            checkBoxes[0] = doubleTime1;
-            checkBoxes[1] = doubleTime2;
-            checkBoxes[2] = doubleTime3;
-            checkBoxes[3] = doubleTime4;
-            checkBoxes[4] = doubleTime5;
-            checkBoxes[5] = doubleTime6;
-            checkBoxes[6] = doubleTime7;
-            checkBoxes[7] = doubleTime8;
-            checkBoxes[8] = doubleTime9;
-            checkBoxes[9] = doubleTime10;
-            checkBoxes[10] = doubleTime11;
-            checkBoxes[11] = doubleTime12;
-            checkBoxes[12] = doubleTime13;
-            checkBoxes[13] = doubleTime14;
-            checkBoxes[14] = doubleTime15;
-            checkBoxes[15] = doubleTime16;
-            checkBoxes[16] = doubleTime17;
-            checkBoxes[17] = doubleTime18;
-            checkBoxes[18] = doubleTime19;
-            checkBoxes[19] = doubleTime20;
+            setControls();
 
             //Fenstergröße & Positionen + Größen der Controls für den Resize-Befehl speichern
             foreach (Control control in this.Controls)
@@ -143,6 +101,53 @@ namespace DnD_Kampfverwaltung
                 float currentSize = initialFontSizes[control];
                 control.Font = new Font(control.Font.FontFamily, currentSize * Math.Min(scaleX, scaleY));
             }
+        }
+
+        private void setControls()
+        {
+            //Namen-Textboxes
+            textBoxes[0] = textBox1;
+            textBoxes[1] = textBox2;
+            textBoxes[2] = textBox3;
+            textBoxes[3] = textBox4;
+            textBoxes[4] = textBox5;
+            textBoxes[5] = textBox6;
+            textBoxes[6] = textBox7;
+            textBoxes[7] = textBox8;
+            textBoxes[8] = textBox9;
+            textBoxes[9] = textBox10;
+            textBoxes[10] = textBox11;
+            textBoxes[11] = textBox12;
+            textBoxes[12] = textBox13;
+            textBoxes[13] = textBox14;
+            textBoxes[14] = textBox15;
+            textBoxes[15] = textBox16;
+            textBoxes[16] = textBox17;
+            textBoxes[17] = textBox18;
+            textBoxes[18] = textBox19;
+            textBoxes[19] = textBox20;
+
+            //Zugzeiten-Checkboxes
+            checkBoxes[0] = doubleTime1;
+            checkBoxes[1] = doubleTime2;
+            checkBoxes[2] = doubleTime3;
+            checkBoxes[3] = doubleTime4;
+            checkBoxes[4] = doubleTime5;
+            checkBoxes[5] = doubleTime6;
+            checkBoxes[6] = doubleTime7;
+            checkBoxes[7] = doubleTime8;
+            checkBoxes[8] = doubleTime9;
+            checkBoxes[9] = doubleTime10;
+            checkBoxes[10] = doubleTime11;
+            checkBoxes[11] = doubleTime12;
+            checkBoxes[12] = doubleTime13;
+            checkBoxes[13] = doubleTime14;
+            checkBoxes[14] = doubleTime15;
+            checkBoxes[15] = doubleTime16;
+            checkBoxes[16] = doubleTime17;
+            checkBoxes[17] = doubleTime18;
+            checkBoxes[18] = doubleTime19;
+            checkBoxes[19] = doubleTime20;
         }
 
         private void Form1_Resize(object sender, EventArgs e)

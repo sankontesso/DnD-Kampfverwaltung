@@ -542,8 +542,21 @@
         }
 
         #endregion
+        private PictureBox logoBox;
+        private Button deleteButton;
+        private TextBox timePerRound;
+        private Button fightButton;
 
-        private TextBox textBox1;
+        private CheckBox doubleTime1;
+        private CheckBox doubleTime2;
+        private CheckBox doubleTime3;
+        private CheckBox doubleTime4;
+        private CheckBox doubleTime5;
+        private CheckBox doubleTime6;
+        private CheckBox doubleTime7;
+        private CheckBox doubleTime8;
+        private CheckBox doubleTime9;
+        private CheckBox doubleTime10;
         private CheckBox doubleTime11;
         private CheckBox doubleTime12;
         private CheckBox doubleTime13;
@@ -554,38 +567,26 @@
         private CheckBox doubleTime18;
         private CheckBox doubleTime19;
         private CheckBox doubleTime20;
-        private CheckBox doubleTime10;
-        private CheckBox doubleTime7;
-        private CheckBox doubleTime8;
-        private CheckBox doubleTime9;
-        private CheckBox doubleTime4;
-        private CheckBox doubleTime5;
-        private CheckBox doubleTime6;
-        private CheckBox doubleTime3;
-        private CheckBox doubleTime2;
-        private CheckBox doubleTime1;
-        private PictureBox logoBox;
-        private Button deleteButton;
-        private TextBox timePerRound;
-        private Button fightButton;
-        private TextBox textBox20;
-        private TextBox textBox19;
-        private TextBox textBox18;
-        private TextBox textBox17;
-        private TextBox textBox16;
-        private TextBox textBox15;
-        private TextBox textBox14;
-        private TextBox textBox13;
-        private TextBox textBox12;
-        private TextBox textBox11;
-        private TextBox textBox10;
-        private TextBox textBox9;
-        private TextBox textBox8;
-        private TextBox textBox7;
-        private TextBox textBox6;
-        private TextBox textBox5;
-        private TextBox textBox4;
-        private TextBox textBox3;
+
+        private TextBox textBox1;
         private TextBox textBox2;
+        private TextBox textBox3;
+        private TextBox textBox4;
+        private TextBox textBox5;
+        private TextBox textBox6;
+        private TextBox textBox7;
+        private TextBox textBox8;
+        private TextBox textBox9;
+        private TextBox textBox10;
+        private TextBox textBox11;
+        private TextBox textBox12;
+        private TextBox textBox13;
+        private TextBox textBox14;
+        private TextBox textBox15;
+        private TextBox textBox16;
+        private TextBox textBox17;
+        private TextBox textBox18;
+        private TextBox textBox19;
+        private TextBox textBox20;
     }
 }
