@@ -17,5 +17,17 @@ namespace DnD_Kampfverwaltung
             InitializeComponent();
             this.Text = "Kämpfer";
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (button1.Text == "")
+            {
+                button1.Text = "X";
+            }
+            else
+            {
+                button1.Text = "";
+            }
+        }
     }
 }

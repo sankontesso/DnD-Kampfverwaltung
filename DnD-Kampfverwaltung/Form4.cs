@@ -15,7 +15,7 @@ namespace DnD_Kampfverwaltung
     public partial class Form4 : Form
     {
         List<fighter> fighters = new List<fighter>();
-        Dictionary<string, CheckBox> checkBoxes = new Dictionary<string, CheckBox>();
+        Dictionary<string, Button> checkBoxes = new Dictionary<string, Button>();
         fighter activeFighter;
 
         //Variablen für das Resizing
@@ -106,7 +106,14 @@ namespace DnD_Kampfverwaltung
             //Alle Checkboxen durchlaufen und an die Werte vom ausgewählten Kämpfer
             foreach (var cb in checkBoxes)
             {
-                cb.Value.Checked = activeFighter.statuses[cb.Key].Item2;
+                if (activeFighter.statuses[cb.Key].Item2)
+                {
+                    cb.Value.Text = "X";
+                }
+                else
+                {
+                    cb.Value.Text = "";
+                }
             }
 
             //Combobox anhand der Erschöpfung aktualisieren
@@ -138,7 +145,7 @@ namespace DnD_Kampfverwaltung
             //Speichert die Werte der Checkboxen in den aktiven Kämpfer
             foreach (var cb in checkBoxes)
             {
-                activeFighter.statuses[cb.Key] = (activeFighter.statuses[cb.Key].Item1, cb.Value.Checked);
+                activeFighter.statuses[cb.Key] = (activeFighter.statuses[cb.Key].Item1, cb.Value.Text == "X");
             }
         }
 
@@ -152,7 +159,7 @@ namespace DnD_Kampfverwaltung
             //Alle Checkboxen zurücksetzen
             foreach (var cb in checkBoxes)
             {
-                cb.Value.Checked = false;
+                cb.Value.Text = "";
             }
             //Kämpferdaten an Checkboxen anpassen und Erschöpfung entfernen
             checkboxesToFighter();
@@ -166,16 +173,40 @@ namespace DnD_Kampfverwaltung
             int i = 0;
             foreach (var status in a.statuses)
             {
-                checkBoxes.Add(status.Key, new CheckBox());
-                checkBoxes[status.Key].Checked = status.Value.Item2;
+                //Button als Checkboxen einfügen, für die Skalierbarkeit
+                checkBoxes.Add(status.Key, new Button());
+                if(status.Value.Item2) checkBoxes[status.Key].Text = "X";
                 checkBoxes[status.Key].Text = status.Value.Item1;
-                checkBoxes[status.Key].Size = new Size(140, 20);
+                checkBoxes[status.Key].Size = new Size(18, 18);
                 checkBoxes[status.Key].Location = new Point(150 * (i % 3) + 20, 20 * (i / 3) + 40);
+                checkBoxes[status.Key].Click += buttonPressed;
+
+                //Beschriftungen für die Zustände einfügen
+                Label statusLabel = new Label();
+                statusLabel.Text = status.Value.Item1;
+                statusLabel.Size = new Size(80, 20);
+                statusLabel.Location = new Point(150 * (i % 3) + 40, 20 * (i / 3) + 40);
+                
+                //Hinzufügen zum Formular
+                Controls.Add(statusLabel);
                 Controls.Add(checkBoxes[status.Key]);
                 i++;
             }
             acceptButton.Location = new Point(10, 20 * (i / 3) + 60);
             resetButton.Location = new Point(160, 20 * (i / 3) + 60);
+        }
+
+        private void buttonPressed(object sender, EventArgs e)
+        {
+            Button clickButton = (Button)sender;
+            if (clickButton.Text == "")
+            {
+                clickButton.Text = "X";
+            }
+            else
+            {
+                clickButton.Text = "";
+            }
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -207,6 +238,15 @@ namespace DnD_Kampfverwaltung
 
                 float currentSize = initialFontSizes[control];
                 control.Font = new Font(control.Font.FontFamily, currentSize * Math.Min(scaleX, scaleY));
+            }
+
+            //Buttons quadratisch formatieren
+            fighter f = fighters[0];
+            foreach (var status in f.statuses)
+            {
+                Button a = checkBoxes[status.Key];
+                a.Location = new Point(a.Left + (a.Width - a.Height), a.Top);
+                a.Size = new Size(a.Height, a.Height);
             }
         }
     }

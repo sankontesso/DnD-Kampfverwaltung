@@ -211,7 +211,7 @@ namespace DnD_Kampfverwaltung
             if (dialogResult == DialogResult.OK && dialog.newFighter.Text != "" && dialog.newFighter.Text != " ")
             {
                 //Kämpfer der Liste hinzufügen
-                fighters.Insert(activeFighter + 1, new fighter(dialog.newFighter.Text, dialog.checkBox1.Checked));
+                fighters.Insert(activeFighter + 1, new fighter(dialog.newFighter.Text, dialog.button1.Text == "X"));
                 showOrder(); //Neue Reihenfolge anzeigen
             }
         }
