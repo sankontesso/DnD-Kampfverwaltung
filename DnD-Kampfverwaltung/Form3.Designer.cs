@@ -70,6 +70,8 @@
             Controls.Add(newFighter);
             Controls.Add(addButton);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximumSize = new Size(185, 137);
+            MinimumSize = new Size(185, 137);
             Name = "Form3";
             Text = "Form3";
             ResumeLayout(false);

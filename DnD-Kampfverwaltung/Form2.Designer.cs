@@ -43,23 +43,24 @@
             folgendLabel = new Label();
             logoBox = new PictureBox();
             newFighterButton = new Button();
+            statusButton = new Button();
+            statusLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)logoBox).BeginInit();
             SuspendLayout();
             // 
             // activeLabel
             // 
-            activeLabel.AutoSize = true;
             activeLabel.Font = new Font("Segoe UI", 100F, FontStyle.Regular, GraphicsUnit.Point);
-            activeLabel.Location = new Point(-14, 121);
+            activeLabel.Location = new Point(-15, 121);
             activeLabel.Name = "activeLabel";
-            activeLabel.Size = new Size(428, 177);
+            activeLabel.Size = new Size(868, 177);
             activeLabel.TabIndex = 0;
             activeLabel.Text = "label1";
             // 
             // nextButton
             // 
             nextButton.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point);
-            nextButton.Location = new Point(711, 437);
+            nextButton.Location = new Point(709, 472);
             nextButton.Name = "nextButton";
             nextButton.Size = new Size(144, 95);
             nextButton.TabIndex = 1;
@@ -83,48 +84,44 @@
             // 
             // secondLabel
             // 
-            secondLabel.AutoSize = true;
             secondLabel.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            secondLabel.Location = new Point(14, 357);
+            secondLabel.Location = new Point(12, 392);
             secondLabel.Name = "secondLabel";
-            secondLabel.Size = new Size(122, 45);
+            secondLabel.Size = new Size(388, 45);
             secondLabel.TabIndex = 3;
             secondLabel.Text = "second";
             // 
             // thirdLabel
             // 
-            thirdLabel.AutoSize = true;
             thirdLabel.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            thirdLabel.Location = new Point(14, 402);
+            thirdLabel.Location = new Point(12, 437);
             thirdLabel.Name = "thirdLabel";
-            thirdLabel.Size = new Size(87, 45);
+            thirdLabel.Size = new Size(388, 45);
             thirdLabel.TabIndex = 4;
             thirdLabel.Text = "third";
             // 
             // fourthLabel
             // 
-            fourthLabel.AutoSize = true;
             fourthLabel.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            fourthLabel.Location = new Point(14, 447);
+            fourthLabel.Location = new Point(12, 482);
             fourthLabel.Name = "fourthLabel";
-            fourthLabel.Size = new Size(107, 45);
+            fourthLabel.Size = new Size(388, 45);
             fourthLabel.TabIndex = 5;
             fourthLabel.Text = "fourth";
             // 
             // fifthLabel
             // 
-            fifthLabel.AutoSize = true;
             fifthLabel.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            fifthLabel.Location = new Point(14, 492);
+            fifthLabel.Location = new Point(12, 527);
             fifthLabel.Name = "fifthLabel";
-            fifthLabel.Size = new Size(77, 45);
+            fifthLabel.Size = new Size(388, 45);
             fifthLabel.TabIndex = 6;
             fifthLabel.Text = "fifth";
             // 
             // deleteButton
             // 
             deleteButton.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
-            deleteButton.Location = new Point(711, 336);
+            deleteButton.Location = new Point(709, 371);
             deleteButton.Name = "deleteButton";
             deleteButton.Size = new Size(144, 95);
             deleteButton.TabIndex = 7;
@@ -146,7 +143,7 @@
             // 
             folgendLabel.AutoSize = true;
             folgendLabel.Font = new Font("Segoe UI Semibold", 24F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
-            folgendLabel.Location = new Point(14, 312);
+            folgendLabel.Location = new Point(12, 347);
             folgendLabel.Name = "folgendLabel";
             folgendLabel.Size = new Size(295, 45);
             folgendLabel.TabIndex = 9;
@@ -160,14 +157,14 @@
             logoBox.Location = new Point(3, -6);
             logoBox.Name = "logoBox";
             logoBox.Size = new Size(134, 124);
-            logoBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            logoBox.SizeMode = PictureBoxSizeMode.Zoom;
             logoBox.TabIndex = 25;
             logoBox.TabStop = false;
             // 
             // newFighterButton
             // 
             newFighterButton.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
-            newFighterButton.Location = new Point(561, 437);
+            newFighterButton.Location = new Point(559, 472);
             newFighterButton.Name = "newFighterButton";
             newFighterButton.Size = new Size(144, 95);
             newFighterButton.TabIndex = 26;
@@ -175,11 +172,34 @@
             newFighterButton.UseVisualStyleBackColor = true;
             newFighterButton.Click += newFighterButton_Click;
             // 
+            // statusButton
+            // 
+            statusButton.Font = new Font("Segoe UI", 27.75F, FontStyle.Regular, GraphicsUnit.Point);
+            statusButton.Location = new Point(559, 371);
+            statusButton.Name = "statusButton";
+            statusButton.Size = new Size(144, 95);
+            statusButton.TabIndex = 27;
+            statusButton.Text = "Status";
+            statusButton.UseVisualStyleBackColor = true;
+            statusButton.Click += statusButton_Click;
+            // 
+            // statusLabel
+            // 
+            statusLabel.AutoSize = true;
+            statusLabel.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            statusLabel.Location = new Point(12, 298);
+            statusLabel.Name = "statusLabel";
+            statusLabel.Size = new Size(264, 30);
+            statusLabel.TabIndex = 28;
+            statusLabel.Text = "STATUSVERÄNDERUNGEN";
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(871, 543);
+            ClientSize = new Size(871, 581);
+            Controls.Add(statusLabel);
+            Controls.Add(statusButton);
             Controls.Add(newFighterButton);
             Controls.Add(folgendLabel);
             Controls.Add(roundsLabel);
@@ -190,11 +210,13 @@
             Controls.Add(secondLabel);
             Controls.Add(timeLabel);
             Controls.Add(nextButton);
-            Controls.Add(activeLabel);
             Controls.Add(logoBox);
+            Controls.Add(activeLabel);
+            Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form2";
             Text = "Form2";
+            Resize += Form2_Resize;
             ((System.ComponentModel.ISupportInitialize)logoBox).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -215,5 +237,7 @@
         private Label folgendLabel;
         private PictureBox logoBox;
         private Button newFighterButton;
+        private Button statusButton;
+        private Label statusLabel;
     }
 }
