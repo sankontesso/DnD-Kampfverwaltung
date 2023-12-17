@@ -240,17 +240,18 @@ namespace DnD_Kampfverwaltung
 
         /*private void fitLabelToContent(Label l)
         {
-            int maxSize = l.MaximumSize.Width;
+            int maxSize = l.Size.Width;
 
             if (TextRenderer.MeasureText(l.Text, l.Font).Width <= maxSize) return;
 
             string labelText = l.Text;
             string textNumber = "..." + Regex.Replace(l.Text, "[^0-9]", "");
+            labelText = Regex.Replace(l.Text, "[0-9]", "");
 
             for (int i = 0; i < labelText.Length; i++) {
                 if(TextRenderer.MeasureText(labelText.Substring(i + 1) + textNumber, l.Font).Width >= maxSize)
                 {
-                    l.Text = Text.Substring(i) + textNumber;
+                    l.Text = labelText.Substring(i) + textNumber;
                     return;
                 }
             }       
