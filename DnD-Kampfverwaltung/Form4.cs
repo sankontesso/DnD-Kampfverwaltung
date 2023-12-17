@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
@@ -53,6 +54,9 @@ namespace DnD_Kampfverwaltung
             }
             standardSizeX = this.Width;
             standardSizeY = this.Height;
+
+            //Fenster maximieren
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -170,6 +174,16 @@ namespace DnD_Kampfverwaltung
                 Controls.Add(checkBoxes[status.Key]);
                 i++;
             }
+            acceptButton.Location = new Point(10, 20 * (i / 3) + 60);
+            resetButton.Location = new Point(160, 20 * (i / 3) + 60);
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            //Wenn ESC gedrückt wird, Statusfenster schließen
+            if (keyData == Keys.Escape) this.Close();
+            if (keyData == Keys.Return) acceptButton.PerformClick();
+            return true;
         }
 
         private void Form4_Resize(object sender, EventArgs e)

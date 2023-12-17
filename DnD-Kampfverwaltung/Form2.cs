@@ -58,7 +58,9 @@ namespace DnD_Kampfverwaltung
             }
             standardSizeX = this.Width;
             standardSizeY = this.Height;
-            resize();
+
+            //Fenster maximieren
+            this.WindowState = FormWindowState.Maximized;
 
             //Starte den Kampf
             startBattle();
@@ -192,6 +194,8 @@ namespace DnD_Kampfverwaltung
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
+            //Bei Tastaturanschlag, nächster Kämpfer, bei ESC Kampf beenden
+            if (keyData == Keys.Escape) this.Close();
             nextFighter();
             return true;
         }

@@ -1,5 +1,6 @@
 using Microsoft.VisualBasic;
 using System.ComponentModel.Design.Serialization;
+using System.Reflection.Metadata.Ecma335;
 using System.Windows.Forms;
 
 namespace DnD_Kampfverwaltung
@@ -34,6 +35,9 @@ namespace DnD_Kampfverwaltung
             }
             standardSizeX = this.Width;
             standardSizeY = this.Height;
+
+            //Fenster maximieren
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void fightButton_Click(object sender, EventArgs e)
@@ -82,6 +86,18 @@ namespace DnD_Kampfverwaltung
             foreach (TextBox a in textBoxes) a.Text = "";
             foreach (CheckBox a in checkBoxes) a.Checked = false;
             timePerRound.Text = "";
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            //Wenn ESC gedrückt wird, Fenster schließen, bei ENTER Kampf starten
+            if (keyData == Keys.Escape) this.Close();
+            if (keyData == Keys.Enter)
+            {
+                fightButton.PerformClick();
+                return true;
+            }
+            return false;
         }
 
         private void resize()
