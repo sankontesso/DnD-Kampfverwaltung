@@ -58,6 +58,7 @@
             // 
             // comboBox2
             // 
+            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox2.FormattingEnabled = true;
             comboBox2.Items.AddRange(new object[] { "Ersch. 0", "Ersch. 1", "Ersch. 2", "Ersch. 3", "Ersch. 4", "Ersch. 5" });
             comboBox2.Location = new Point(363, 12);
