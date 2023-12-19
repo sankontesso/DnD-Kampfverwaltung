@@ -212,7 +212,6 @@ namespace DnD_Kampfverwaltung
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-
             //Wenn ESC gedrückt wird, Fenster schließen, bei ENTER Kampf starten
             switch (keyData)
             {
