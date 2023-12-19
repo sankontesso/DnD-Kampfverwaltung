@@ -212,11 +212,22 @@ namespace DnD_Kampfverwaltung
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            //Wenn ESC gedrückt wird, Statusfenster schließen
-            if (keyData == Keys.Escape) this.Close();
-            if (keyData == Keys.Return) acceptButton.PerformClick();
-            if (keyData == Keys.R) resetButton.PerformClick();
-            return true;
+
+            //Wenn ESC gedrückt wird, Fenster schließen, bei ENTER Kampf starten
+            switch (keyData)
+            {
+                case Keys.Escape:
+                    this.Close();
+                    return true;
+                case Keys.Enter:
+                    acceptButton.PerformClick();
+                    return true;
+                case Keys.R:
+                    resetButton.PerformClick();
+                    return true;
+                default:
+                    return false;
+            }
         }
 
         private void Form4_Resize(object sender, EventArgs e)
