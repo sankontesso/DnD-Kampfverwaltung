@@ -194,10 +194,28 @@ namespace DnD_Kampfverwaltung
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            //Bei Tastaturanschlag, nächster Kämpfer, bei ESC Kampf beenden
-            if (keyData == Keys.Escape) this.Close();
-            nextFighter();
-            return true;
+            //Tastatursteuerung
+            switch (keyData)
+            {
+                case Keys.Escape:
+                    this.Close();
+                    return true;
+                case Keys.Delete:
+                    deleteButton.PerformClick();
+                    return true;
+                case Keys.Add:
+                    newFighterButton.PerformClick();
+                    return true;
+                case Keys.W:
+                    newFighterButton.PerformClick();
+                    return true;
+                case Keys.S:
+                    statusButton.PerformClick();
+                    return true;
+                default:
+                    nextFighter();
+                    return true;
+            }
         }
 
         private void newFighterButton_Click(object sender, EventArgs e)

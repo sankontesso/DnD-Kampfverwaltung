@@ -192,8 +192,9 @@ namespace DnD_Kampfverwaltung
                 Controls.Add(checkBoxes[status.Key]);
                 i++;
             }
-            acceptButton.Location = new Point(10, 20 * (i / 3) + 60);
-            resetButton.Location = new Point(160, 20 * (i / 3) + 60);
+            //Anpassung der Buttonhöhe anhand der Anzahl der Checkboxen
+            acceptButton.Location = new Point(acceptButton.Left, 20 * (i / 3) + 60);
+            resetButton.Location = new Point(resetButton.Left, 20 * (i / 3) + 60);
         }
 
         private void buttonPressed(object sender, EventArgs e)
@@ -214,6 +215,7 @@ namespace DnD_Kampfverwaltung
             //Wenn ESC gedrückt wird, Statusfenster schließen
             if (keyData == Keys.Escape) this.Close();
             if (keyData == Keys.Return) acceptButton.PerformClick();
+            if (keyData == Keys.R) resetButton.PerformClick();
             return true;
         }
 

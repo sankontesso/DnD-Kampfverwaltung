@@ -91,13 +91,20 @@ namespace DnD_Kampfverwaltung
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             //Wenn ESC gedrückt wird, Fenster schließen, bei ENTER Kampf starten
-            if (keyData == Keys.Escape) this.Close();
-            if (keyData == Keys.Enter)
+            switch (keyData)
             {
-                fightButton.PerformClick();
-                return true;
+                case Keys.Escape:
+                    this.Close();
+                    return true;
+                case Keys.Enter:
+                    fightButton.PerformClick();
+                    return true;
+                case Keys.Delete:
+                    deleteButton.PerformClick();
+                    return true;
+                default:
+                    return false;
             }
-            return false;
         }
 
         private void resize()
@@ -119,7 +126,7 @@ namespace DnD_Kampfverwaltung
             }
 
             //Buttons quadratisch formatieren
-            for(int i = 0; i < checkBoxes.Length; i++)
+            for (int i = 0; i < checkBoxes.Length; i++)
             {
                 checkBoxes[i].Location = new Point(checkBoxes[i].Left + (checkBoxes[i].Width - checkBoxes[i].Height), checkBoxes[i].Top);
                 checkBoxes[i].Size = new Size(checkBoxes[i].Height, checkBoxes[i].Height);
@@ -173,7 +180,7 @@ namespace DnD_Kampfverwaltung
             checkBoxes[19] = button20;
 
             //Den Button (Checkboxen), das click-Event hinzufügen
-            foreach(Button a in checkBoxes)
+            foreach (Button a in checkBoxes)
             {
                 a.Click += buttonPressed;
             }

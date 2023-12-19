@@ -100,11 +100,11 @@
             // deleteButton
             // 
             deleteButton.Anchor = AnchorStyles.None;
-            deleteButton.Location = new Point(99, 472);
+            deleteButton.Location = new Point(33, 471);
             deleteButton.Name = "deleteButton";
-            deleteButton.Size = new Size(74, 23);
+            deleteButton.Size = new Size(92, 23);
             deleteButton.TabIndex = 23;
-            deleteButton.Text = "Leeren";
+            deleteButton.Text = "Leeren [DEL]";
             deleteButton.UseVisualStyleBackColor = true;
             deleteButton.Click += deleteButton_Click;
             // 
@@ -112,7 +112,7 @@
             // 
             timePerRound.Anchor = AnchorStyles.None;
             timePerRound.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            timePerRound.Location = new Point(61, 508);
+            timePerRound.Location = new Point(12, 500);
             timePerRound.Name = "timePerRound";
             timePerRound.PlaceholderText = "Zugzeit [s]";
             timePerRound.Size = new Size(149, 33);
@@ -123,11 +123,11 @@
             // 
             fightButton.Anchor = AnchorStyles.None;
             fightButton.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            fightButton.Location = new Point(273, 502);
+            fightButton.Location = new Point(188, 471);
             fightButton.Name = "fightButton";
-            fightButton.Size = new Size(194, 47);
+            fightButton.Size = new Size(280, 64);
             fightButton.TabIndex = 21;
-            fightButton.Text = "Zum Kampf";
+            fightButton.Text = "Zum Kampf [ENTER]";
             fightButton.UseVisualStyleBackColor = true;
             fightButton.Click += fightButton_Click;
             // 

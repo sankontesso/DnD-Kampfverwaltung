@@ -34,13 +34,17 @@ namespace DnD_Kampfverwaltung
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             //Wenn ESC gedrückt wird, Fenster schließen, bei ENTER Kampf starten
-            if (keyData == Keys.Escape) this.Close();
-            if (keyData == Keys.Enter)
+            switch (keyData)
             {
-                addButton.PerformClick();
-                return true;
+                case Keys.Escape:
+                    this.Close();
+                    return true;
+                case Keys.Enter:
+                    addButton.PerformClick();
+                    return true;
+                default:
+                    return false;
             }
-            return false;
         }
 
     }
