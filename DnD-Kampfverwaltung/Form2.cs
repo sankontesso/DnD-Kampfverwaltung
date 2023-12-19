@@ -194,10 +194,28 @@ namespace DnD_Kampfverwaltung
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            //Bei Tastaturanschlag, nächster Kämpfer, bei ESC Kampf beenden
-            if (keyData == Keys.Escape) this.Close();
-            nextFighter();
-            return true;
+            //Tastatursteuerung
+            switch (keyData)
+            {
+                case Keys.Escape:
+                    this.Close();
+                    return true;
+                case Keys.Delete:
+                    deleteButton.PerformClick();
+                    return true;
+                case Keys.Add:
+                    newFighterButton.PerformClick();
+                    return true;
+                case Keys.W:
+                    newFighterButton.PerformClick();
+                    return true;
+                case Keys.S:
+                    statusButton.PerformClick();
+                    return true;
+                default:
+                    nextFighter();
+                    return true;
+            }
         }
 
         private void newFighterButton_Click(object sender, EventArgs e)
@@ -211,7 +229,7 @@ namespace DnD_Kampfverwaltung
             if (dialogResult == DialogResult.OK && dialog.newFighter.Text != "" && dialog.newFighter.Text != " ")
             {
                 //Kämpfer der Liste hinzufügen
-                fighters.Insert(activeFighter + 1, new fighter(dialog.newFighter.Text, dialog.checkBox1.Checked));
+                fighters.Insert(activeFighter + 1, new fighter(dialog.newFighter.Text, dialog.button1.Text == "X"));
                 showOrder(); //Neue Reihenfolge anzeigen
             }
         }

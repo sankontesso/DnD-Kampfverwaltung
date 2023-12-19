@@ -50,14 +50,15 @@
             acceptButton.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             acceptButton.Location = new Point(12, 141);
             acceptButton.Name = "acceptButton";
-            acceptButton.Size = new Size(144, 48);
+            acceptButton.Size = new Size(222, 48);
             acceptButton.TabIndex = 2;
-            acceptButton.Text = "Akzeptieren";
+            acceptButton.Text = "Akzeptieren [ENTER]";
             acceptButton.UseVisualStyleBackColor = true;
             acceptButton.Click += acceptButton_Click;
             // 
             // comboBox2
             // 
+            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox2.FormattingEnabled = true;
             comboBox2.Items.AddRange(new object[] { "Ersch. 0", "Ersch. 1", "Ersch. 2", "Ersch. 3", "Ersch. 4", "Ersch. 5" });
             comboBox2.Location = new Point(363, 12);
@@ -69,11 +70,11 @@
             // resetButton
             // 
             resetButton.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            resetButton.Location = new Point(363, 141);
+            resetButton.Location = new Point(333, 141);
             resetButton.Name = "resetButton";
-            resetButton.Size = new Size(78, 48);
+            resetButton.Size = new Size(108, 48);
             resetButton.TabIndex = 4;
-            resetButton.Text = "Reset";
+            resetButton.Text = "Reset [R]";
             resetButton.UseVisualStyleBackColor = true;
             resetButton.Click += resetButton_Click;
             // 

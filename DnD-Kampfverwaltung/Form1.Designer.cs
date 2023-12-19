@@ -30,26 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             textBox1 = new TextBox();
-            doubleTime11 = new CheckBox();
-            doubleTime12 = new CheckBox();
-            doubleTime13 = new CheckBox();
-            doubleTime14 = new CheckBox();
-            doubleTime15 = new CheckBox();
-            doubleTime16 = new CheckBox();
-            doubleTime17 = new CheckBox();
-            doubleTime18 = new CheckBox();
-            doubleTime19 = new CheckBox();
-            doubleTime20 = new CheckBox();
-            doubleTime10 = new CheckBox();
-            doubleTime7 = new CheckBox();
-            doubleTime8 = new CheckBox();
-            doubleTime9 = new CheckBox();
-            doubleTime4 = new CheckBox();
-            doubleTime5 = new CheckBox();
-            doubleTime6 = new CheckBox();
-            doubleTime3 = new CheckBox();
-            doubleTime2 = new CheckBox();
-            doubleTime1 = new CheckBox();
             logoBox = new PictureBox();
             deleteButton = new Button();
             timePerRound = new TextBox();
@@ -73,6 +53,26 @@
             textBox4 = new TextBox();
             textBox3 = new TextBox();
             textBox2 = new TextBox();
+            button1 = new Button();
+            button2 = new Button();
+            button3 = new Button();
+            button4 = new Button();
+            button5 = new Button();
+            button6 = new Button();
+            button7 = new Button();
+            button8 = new Button();
+            button9 = new Button();
+            button10 = new Button();
+            button20 = new Button();
+            button19 = new Button();
+            button18 = new Button();
+            button17 = new Button();
+            button16 = new Button();
+            button15 = new Button();
+            button14 = new Button();
+            button13 = new Button();
+            button12 = new Button();
+            button11 = new Button();
             ((System.ComponentModel.ISupportInitialize)logoBox).BeginInit();
             SuspendLayout();
             // 
@@ -83,206 +83,6 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(200, 23);
             textBox1.TabIndex = 0;
-            // 
-            // doubleTime11
-            // 
-            doubleTime11.Anchor = AnchorStyles.None;
-            doubleTime11.AutoSize = true;
-            doubleTime11.Location = new Point(245, 177);
-            doubleTime11.Name = "doubleTime11";
-            doubleTime11.Size = new Size(15, 14);
-            doubleTime11.TabIndex = 35;
-            doubleTime11.UseVisualStyleBackColor = true;
-            // 
-            // doubleTime12
-            // 
-            doubleTime12.Anchor = AnchorStyles.None;
-            doubleTime12.AutoSize = true;
-            doubleTime12.Location = new Point(245, 207);
-            doubleTime12.Name = "doubleTime12";
-            doubleTime12.Size = new Size(15, 14);
-            doubleTime12.TabIndex = 36;
-            doubleTime12.UseVisualStyleBackColor = true;
-            // 
-            // doubleTime13
-            // 
-            doubleTime13.Anchor = AnchorStyles.None;
-            doubleTime13.AutoSize = true;
-            doubleTime13.Location = new Point(245, 237);
-            doubleTime13.Name = "doubleTime13";
-            doubleTime13.Size = new Size(15, 14);
-            doubleTime13.TabIndex = 37;
-            doubleTime13.UseVisualStyleBackColor = true;
-            // 
-            // doubleTime14
-            // 
-            doubleTime14.Anchor = AnchorStyles.None;
-            doubleTime14.AutoSize = true;
-            doubleTime14.Location = new Point(245, 267);
-            doubleTime14.Name = "doubleTime14";
-            doubleTime14.Size = new Size(15, 14);
-            doubleTime14.TabIndex = 38;
-            doubleTime14.UseVisualStyleBackColor = true;
-            // 
-            // doubleTime15
-            // 
-            doubleTime15.Anchor = AnchorStyles.None;
-            doubleTime15.AutoSize = true;
-            doubleTime15.Location = new Point(245, 297);
-            doubleTime15.Name = "doubleTime15";
-            doubleTime15.Size = new Size(15, 14);
-            doubleTime15.TabIndex = 39;
-            doubleTime15.UseVisualStyleBackColor = true;
-            // 
-            // doubleTime16
-            // 
-            doubleTime16.Anchor = AnchorStyles.None;
-            doubleTime16.AutoSize = true;
-            doubleTime16.Location = new Point(245, 327);
-            doubleTime16.Name = "doubleTime16";
-            doubleTime16.Size = new Size(15, 14);
-            doubleTime16.TabIndex = 40;
-            doubleTime16.UseVisualStyleBackColor = true;
-            // 
-            // doubleTime17
-            // 
-            doubleTime17.Anchor = AnchorStyles.None;
-            doubleTime17.AutoSize = true;
-            doubleTime17.Location = new Point(245, 357);
-            doubleTime17.Name = "doubleTime17";
-            doubleTime17.Size = new Size(15, 14);
-            doubleTime17.TabIndex = 41;
-            doubleTime17.UseVisualStyleBackColor = true;
-            // 
-            // doubleTime18
-            // 
-            doubleTime18.Anchor = AnchorStyles.None;
-            doubleTime18.AutoSize = true;
-            doubleTime18.Location = new Point(245, 387);
-            doubleTime18.Name = "doubleTime18";
-            doubleTime18.Size = new Size(15, 14);
-            doubleTime18.TabIndex = 42;
-            doubleTime18.UseVisualStyleBackColor = true;
-            // 
-            // doubleTime19
-            // 
-            doubleTime19.Anchor = AnchorStyles.None;
-            doubleTime19.AutoSize = true;
-            doubleTime19.Location = new Point(245, 417);
-            doubleTime19.Name = "doubleTime19";
-            doubleTime19.Size = new Size(15, 14);
-            doubleTime19.TabIndex = 43;
-            doubleTime19.UseVisualStyleBackColor = true;
-            // 
-            // doubleTime20
-            // 
-            doubleTime20.Anchor = AnchorStyles.None;
-            doubleTime20.AutoSize = true;
-            doubleTime20.Location = new Point(245, 447);
-            doubleTime20.Name = "doubleTime20";
-            doubleTime20.Size = new Size(15, 14);
-            doubleTime20.TabIndex = 44;
-            doubleTime20.UseVisualStyleBackColor = true;
-            // 
-            // doubleTime10
-            // 
-            doubleTime10.Anchor = AnchorStyles.None;
-            doubleTime10.AutoSize = true;
-            doubleTime10.Location = new Point(12, 447);
-            doubleTime10.Name = "doubleTime10";
-            doubleTime10.Size = new Size(15, 14);
-            doubleTime10.TabIndex = 34;
-            doubleTime10.UseVisualStyleBackColor = true;
-            // 
-            // doubleTime7
-            // 
-            doubleTime7.Anchor = AnchorStyles.None;
-            doubleTime7.AutoSize = true;
-            doubleTime7.Location = new Point(12, 357);
-            doubleTime7.Name = "doubleTime7";
-            doubleTime7.Size = new Size(15, 14);
-            doubleTime7.TabIndex = 31;
-            doubleTime7.UseVisualStyleBackColor = true;
-            // 
-            // doubleTime8
-            // 
-            doubleTime8.Anchor = AnchorStyles.None;
-            doubleTime8.AutoSize = true;
-            doubleTime8.Location = new Point(12, 387);
-            doubleTime8.Name = "doubleTime8";
-            doubleTime8.Size = new Size(15, 14);
-            doubleTime8.TabIndex = 32;
-            doubleTime8.UseVisualStyleBackColor = true;
-            // 
-            // doubleTime9
-            // 
-            doubleTime9.Anchor = AnchorStyles.None;
-            doubleTime9.AutoSize = true;
-            doubleTime9.Location = new Point(12, 417);
-            doubleTime9.Name = "doubleTime9";
-            doubleTime9.Size = new Size(15, 14);
-            doubleTime9.TabIndex = 33;
-            doubleTime9.UseVisualStyleBackColor = true;
-            // 
-            // doubleTime4
-            // 
-            doubleTime4.Anchor = AnchorStyles.None;
-            doubleTime4.AutoSize = true;
-            doubleTime4.Location = new Point(12, 267);
-            doubleTime4.Name = "doubleTime4";
-            doubleTime4.Size = new Size(15, 14);
-            doubleTime4.TabIndex = 28;
-            doubleTime4.UseVisualStyleBackColor = true;
-            // 
-            // doubleTime5
-            // 
-            doubleTime5.Anchor = AnchorStyles.None;
-            doubleTime5.AutoSize = true;
-            doubleTime5.Location = new Point(12, 297);
-            doubleTime5.Name = "doubleTime5";
-            doubleTime5.Size = new Size(15, 14);
-            doubleTime5.TabIndex = 29;
-            doubleTime5.UseVisualStyleBackColor = true;
-            // 
-            // doubleTime6
-            // 
-            doubleTime6.Anchor = AnchorStyles.None;
-            doubleTime6.AutoSize = true;
-            doubleTime6.Location = new Point(12, 327);
-            doubleTime6.Name = "doubleTime6";
-            doubleTime6.Size = new Size(15, 14);
-            doubleTime6.TabIndex = 30;
-            doubleTime6.UseVisualStyleBackColor = true;
-            // 
-            // doubleTime3
-            // 
-            doubleTime3.Anchor = AnchorStyles.None;
-            doubleTime3.AutoSize = true;
-            doubleTime3.Location = new Point(12, 237);
-            doubleTime3.Name = "doubleTime3";
-            doubleTime3.Size = new Size(15, 14);
-            doubleTime3.TabIndex = 27;
-            doubleTime3.UseVisualStyleBackColor = true;
-            // 
-            // doubleTime2
-            // 
-            doubleTime2.Anchor = AnchorStyles.None;
-            doubleTime2.AutoSize = true;
-            doubleTime2.Location = new Point(12, 207);
-            doubleTime2.Name = "doubleTime2";
-            doubleTime2.Size = new Size(15, 14);
-            doubleTime2.TabIndex = 26;
-            doubleTime2.UseVisualStyleBackColor = true;
-            // 
-            // doubleTime1
-            // 
-            doubleTime1.Anchor = AnchorStyles.None;
-            doubleTime1.AutoSize = true;
-            doubleTime1.Location = new Point(12, 177);
-            doubleTime1.Name = "doubleTime1";
-            doubleTime1.Size = new Size(15, 14);
-            doubleTime1.TabIndex = 25;
-            doubleTime1.UseVisualStyleBackColor = true;
             // 
             // logoBox
             // 
@@ -300,11 +100,11 @@
             // deleteButton
             // 
             deleteButton.Anchor = AnchorStyles.None;
-            deleteButton.Location = new Point(99, 472);
+            deleteButton.Location = new Point(33, 471);
             deleteButton.Name = "deleteButton";
-            deleteButton.Size = new Size(74, 23);
+            deleteButton.Size = new Size(92, 23);
             deleteButton.TabIndex = 23;
-            deleteButton.Text = "Leeren";
+            deleteButton.Text = "Leeren [DEL]";
             deleteButton.UseVisualStyleBackColor = true;
             deleteButton.Click += deleteButton_Click;
             // 
@@ -312,7 +112,7 @@
             // 
             timePerRound.Anchor = AnchorStyles.None;
             timePerRound.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            timePerRound.Location = new Point(61, 508);
+            timePerRound.Location = new Point(12, 500);
             timePerRound.Name = "timePerRound";
             timePerRound.PlaceholderText = "Zugzeit [s]";
             timePerRound.Size = new Size(149, 33);
@@ -323,11 +123,11 @@
             // 
             fightButton.Anchor = AnchorStyles.None;
             fightButton.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            fightButton.Location = new Point(273, 502);
+            fightButton.Location = new Point(188, 471);
             fightButton.Name = "fightButton";
-            fightButton.Size = new Size(194, 47);
+            fightButton.Size = new Size(280, 64);
             fightButton.TabIndex = 21;
-            fightButton.Text = "Zum Kampf";
+            fightButton.Text = "Zum Kampf [ENTER]";
             fightButton.UseVisualStyleBackColor = true;
             fightButton.Click += fightButton_Click;
             // 
@@ -483,56 +283,237 @@
             textBox2.Size = new Size(200, 23);
             textBox2.TabIndex = 1;
             // 
+            // button1
+            // 
+            button1.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.Location = new Point(4, 172);
+            button1.Name = "button1";
+            button1.Size = new Size(23, 23);
+            button1.TabIndex = 45;
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            button2.Location = new Point(4, 202);
+            button2.Name = "button2";
+            button2.Size = new Size(23, 23);
+            button2.TabIndex = 46;
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            button3.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            button3.Location = new Point(4, 232);
+            button3.Name = "button3";
+            button3.Size = new Size(23, 23);
+            button3.TabIndex = 47;
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            button4.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            button4.Location = new Point(4, 262);
+            button4.Name = "button4";
+            button4.Size = new Size(23, 23);
+            button4.TabIndex = 48;
+            button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            button5.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            button5.Location = new Point(4, 292);
+            button5.Name = "button5";
+            button5.Size = new Size(23, 23);
+            button5.TabIndex = 49;
+            button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            button6.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            button6.Location = new Point(4, 322);
+            button6.Name = "button6";
+            button6.Size = new Size(23, 23);
+            button6.TabIndex = 50;
+            button6.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            button7.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            button7.Location = new Point(4, 352);
+            button7.Name = "button7";
+            button7.Size = new Size(23, 23);
+            button7.TabIndex = 51;
+            button7.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            button8.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            button8.Location = new Point(4, 382);
+            button8.Name = "button8";
+            button8.Size = new Size(23, 23);
+            button8.TabIndex = 52;
+            button8.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            button9.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            button9.Location = new Point(4, 412);
+            button9.Name = "button9";
+            button9.Size = new Size(23, 23);
+            button9.TabIndex = 53;
+            button9.UseVisualStyleBackColor = true;
+            // 
+            // button10
+            // 
+            button10.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            button10.Location = new Point(4, 442);
+            button10.Name = "button10";
+            button10.Size = new Size(23, 23);
+            button10.TabIndex = 54;
+            button10.UseVisualStyleBackColor = true;
+            // 
+            // button20
+            // 
+            button20.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            button20.Location = new Point(239, 442);
+            button20.Name = "button20";
+            button20.Size = new Size(23, 23);
+            button20.TabIndex = 64;
+            button20.UseVisualStyleBackColor = true;
+            // 
+            // button19
+            // 
+            button19.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            button19.Location = new Point(239, 412);
+            button19.Name = "button19";
+            button19.Size = new Size(23, 23);
+            button19.TabIndex = 63;
+            button19.UseVisualStyleBackColor = true;
+            // 
+            // button18
+            // 
+            button18.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            button18.Location = new Point(239, 382);
+            button18.Name = "button18";
+            button18.Size = new Size(23, 23);
+            button18.TabIndex = 62;
+            button18.UseVisualStyleBackColor = true;
+            // 
+            // button17
+            // 
+            button17.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            button17.Location = new Point(239, 352);
+            button17.Name = "button17";
+            button17.Size = new Size(23, 23);
+            button17.TabIndex = 61;
+            button17.UseVisualStyleBackColor = true;
+            // 
+            // button16
+            // 
+            button16.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            button16.Location = new Point(239, 322);
+            button16.Name = "button16";
+            button16.Size = new Size(23, 23);
+            button16.TabIndex = 60;
+            button16.UseVisualStyleBackColor = true;
+            // 
+            // button15
+            // 
+            button15.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            button15.Location = new Point(239, 292);
+            button15.Name = "button15";
+            button15.Size = new Size(23, 23);
+            button15.TabIndex = 59;
+            button15.UseVisualStyleBackColor = true;
+            // 
+            // button14
+            // 
+            button14.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            button14.Location = new Point(239, 262);
+            button14.Name = "button14";
+            button14.Size = new Size(23, 23);
+            button14.TabIndex = 58;
+            button14.UseVisualStyleBackColor = true;
+            // 
+            // button13
+            // 
+            button13.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            button13.Location = new Point(239, 232);
+            button13.Name = "button13";
+            button13.Size = new Size(23, 23);
+            button13.TabIndex = 57;
+            button13.UseVisualStyleBackColor = true;
+            // 
+            // button12
+            // 
+            button12.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            button12.Location = new Point(239, 202);
+            button12.Name = "button12";
+            button12.Size = new Size(23, 23);
+            button12.TabIndex = 56;
+            button12.UseVisualStyleBackColor = true;
+            // 
+            // button11
+            // 
+            button11.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            button11.Location = new Point(239, 172);
+            button11.Name = "button11";
+            button11.Size = new Size(23, 23);
+            button11.TabIndex = 55;
+            button11.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(480, 556);
+            Controls.Add(button20);
+            Controls.Add(button19);
+            Controls.Add(button18);
+            Controls.Add(button17);
+            Controls.Add(button16);
+            Controls.Add(button15);
+            Controls.Add(button14);
+            Controls.Add(button13);
+            Controls.Add(button12);
+            Controls.Add(button11);
+            Controls.Add(button10);
+            Controls.Add(button9);
+            Controls.Add(button8);
+            Controls.Add(button7);
+            Controls.Add(button6);
+            Controls.Add(button5);
+            Controls.Add(button4);
+            Controls.Add(button3);
+            Controls.Add(button2);
+            Controls.Add(button1);
             Controls.Add(textBox20);
-            Controls.Add(doubleTime1);
             Controls.Add(textBox19);
             Controls.Add(textBox18);
             Controls.Add(textBox1);
             Controls.Add(textBox17);
             Controls.Add(textBox2);
             Controls.Add(textBox16);
-            Controls.Add(doubleTime6);
             Controls.Add(textBox15);
-            Controls.Add(doubleTime5);
             Controls.Add(textBox14);
-            Controls.Add(doubleTime7);
             Controls.Add(textBox13);
-            Controls.Add(doubleTime4);
             Controls.Add(textBox12);
-            Controls.Add(doubleTime8);
             Controls.Add(textBox11);
-            Controls.Add(doubleTime3);
-            Controls.Add(doubleTime20);
-            Controls.Add(doubleTime9);
-            Controls.Add(doubleTime19);
             Controls.Add(textBox10);
-            Controls.Add(doubleTime2);
             Controls.Add(deleteButton);
-            Controls.Add(doubleTime18);
-            Controls.Add(doubleTime10);
             Controls.Add(timePerRound);
-            Controls.Add(doubleTime17);
             Controls.Add(fightButton);
             Controls.Add(textBox3);
             Controls.Add(textBox9);
-            Controls.Add(doubleTime16);
-            Controls.Add(doubleTime11);
             Controls.Add(textBox4);
             Controls.Add(textBox8);
-            Controls.Add(doubleTime15);
-            Controls.Add(doubleTime12);
             Controls.Add(textBox5);
             Controls.Add(textBox7);
-            Controls.Add(doubleTime14);
-            Controls.Add(doubleTime13);
             Controls.Add(textBox6);
             Controls.Add(logoBox);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MinimumSize = new Size(496, 595);
             Name = "Form1";
             Text = "Form1";
             Resize += Form1_Resize;
@@ -546,27 +527,6 @@
         private Button deleteButton;
         private TextBox timePerRound;
         private Button fightButton;
-
-        private CheckBox doubleTime1;
-        private CheckBox doubleTime2;
-        private CheckBox doubleTime3;
-        private CheckBox doubleTime4;
-        private CheckBox doubleTime5;
-        private CheckBox doubleTime6;
-        private CheckBox doubleTime7;
-        private CheckBox doubleTime8;
-        private CheckBox doubleTime9;
-        private CheckBox doubleTime10;
-        private CheckBox doubleTime11;
-        private CheckBox doubleTime12;
-        private CheckBox doubleTime13;
-        private CheckBox doubleTime14;
-        private CheckBox doubleTime15;
-        private CheckBox doubleTime16;
-        private CheckBox doubleTime17;
-        private CheckBox doubleTime18;
-        private CheckBox doubleTime19;
-        private CheckBox doubleTime20;
 
         private TextBox textBox1;
         private TextBox textBox2;
@@ -588,5 +548,25 @@
         private TextBox textBox18;
         private TextBox textBox19;
         private TextBox textBox20;
+        private Button button1;
+        private Button button2;
+        private Button button3;
+        private Button button4;
+        private Button button5;
+        private Button button6;
+        private Button button7;
+        private Button button8;
+        private Button button9;
+        private Button button10;
+        private Button button20;
+        private Button button19;
+        private Button button18;
+        private Button button17;
+        private Button button16;
+        private Button button15;
+        private Button button14;
+        private Button button13;
+        private Button button12;
+        private Button button11;
     }
 }

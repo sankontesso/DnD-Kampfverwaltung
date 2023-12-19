@@ -31,47 +31,49 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             addButton = new Button();
             newFighter = new TextBox();
-            checkBox1 = new CheckBox();
+            button1 = new Button();
             SuspendLayout();
             // 
             // addButton
             // 
-            addButton.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            addButton.Location = new Point(12, 41);
+            addButton.Font = new Font("Segoe UI", 27.75F, FontStyle.Regular, GraphicsUnit.Point);
+            addButton.Location = new Point(12, 72);
             addButton.Name = "addButton";
-            addButton.Size = new Size(144, 48);
+            addButton.Size = new Size(360, 101);
             addButton.TabIndex = 1;
-            addButton.Text = "Hinzufügen ";
+            addButton.Text = "Hinzufügen [ENTER]";
             addButton.UseVisualStyleBackColor = true;
             // 
             // newFighter
             // 
-            newFighter.Location = new Point(33, 12);
+            newFighter.Font = new Font("Segoe UI", 27.75F, FontStyle.Regular, GraphicsUnit.Point);
+            newFighter.Location = new Point(75, 9);
             newFighter.Name = "newFighter";
             newFighter.PlaceholderText = "Neuer Kämpfer";
-            newFighter.Size = new Size(123, 23);
+            newFighter.Size = new Size(274, 57);
             newFighter.TabIndex = 28;
             // 
-            // checkBox1
+            // button1
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(12, 14);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(15, 14);
-            checkBox1.TabIndex = 29;
-            checkBox1.UseVisualStyleBackColor = true;
+            button1.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.Location = new Point(12, 12);
+            button1.Name = "button1";
+            button1.Size = new Size(50, 50);
+            button1.TabIndex = 46;
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // Form3
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(169, 98);
-            Controls.Add(checkBox1);
+            ClientSize = new Size(384, 181);
+            Controls.Add(button1);
             Controls.Add(newFighter);
             Controls.Add(addButton);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            MaximumSize = new Size(185, 137);
-            MinimumSize = new Size(185, 137);
+            MaximumSize = new Size(400, 250);
+            MinimumSize = new Size(400, 220);
             Name = "Form3";
             Text = "Form3";
             ResumeLayout(false);
@@ -81,6 +83,6 @@
         #endregion
         public Button addButton;
         public TextBox newFighter;
-        public CheckBox checkBox1;
+        public Button button1;
     }
 }

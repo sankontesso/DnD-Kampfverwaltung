@@ -11,7 +11,7 @@ namespace DnD_Kampfverwaltung
         public List<fighter> fighters = new List<fighter>();
 
         private TextBox[] textBoxes = new TextBox[20];
-        private CheckBox[] checkBoxes = new CheckBox[20];
+        private Button[] checkBoxes = new Button[20];
         public int counter = 0;
 
         //Variablen für das Resizing
@@ -53,7 +53,7 @@ namespace DnD_Kampfverwaltung
                 if (textBoxes[i].Text != "" && textBoxes[i].Text != " " && textBoxes[i].Text != "  ")
                 {
                     //Übernehme Kämpfername und ggf. doppelte Zugzeit
-                    addFighter(textBoxes[i].Text, checkBoxes[i].Checked);
+                    addFighter(textBoxes[i].Text, checkBoxes[i].Text == "X");
                 }
             }
 
@@ -84,20 +84,27 @@ namespace DnD_Kampfverwaltung
         {
             //Textfelder zurücksetzen
             foreach (TextBox a in textBoxes) a.Text = "";
-            foreach (CheckBox a in checkBoxes) a.Checked = false;
+            foreach (Button a in checkBoxes) a.Text = "";
             timePerRound.Text = "";
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             //Wenn ESC gedrückt wird, Fenster schließen, bei ENTER Kampf starten
-            if (keyData == Keys.Escape) this.Close();
-            if (keyData == Keys.Enter)
+            switch (keyData)
             {
-                fightButton.PerformClick();
-                return true;
+                case Keys.Escape:
+                    this.Close();
+                    return true;
+                case Keys.Enter:
+                    fightButton.PerformClick();
+                    return true;
+                case Keys.Delete:
+                    deleteButton.PerformClick();
+                    return true;
+                default:
+                    return false;
             }
-            return false;
         }
 
         private void resize()
@@ -116,6 +123,13 @@ namespace DnD_Kampfverwaltung
 
                 float currentSize = initialFontSizes[control];
                 control.Font = new Font(control.Font.FontFamily, currentSize * Math.Min(scaleX, scaleY));
+            }
+
+            //Buttons quadratisch formatieren
+            for (int i = 0; i < checkBoxes.Length; i++)
+            {
+                checkBoxes[i].Location = new Point(checkBoxes[i].Left + (checkBoxes[i].Width - checkBoxes[i].Height), checkBoxes[i].Top);
+                checkBoxes[i].Size = new Size(checkBoxes[i].Height, checkBoxes[i].Height);
             }
         }
 
@@ -144,26 +158,45 @@ namespace DnD_Kampfverwaltung
             textBoxes[19] = textBox20;
 
             //Zugzeiten-Checkboxes
-            checkBoxes[0] = doubleTime1;
-            checkBoxes[1] = doubleTime2;
-            checkBoxes[2] = doubleTime3;
-            checkBoxes[3] = doubleTime4;
-            checkBoxes[4] = doubleTime5;
-            checkBoxes[5] = doubleTime6;
-            checkBoxes[6] = doubleTime7;
-            checkBoxes[7] = doubleTime8;
-            checkBoxes[8] = doubleTime9;
-            checkBoxes[9] = doubleTime10;
-            checkBoxes[10] = doubleTime11;
-            checkBoxes[11] = doubleTime12;
-            checkBoxes[12] = doubleTime13;
-            checkBoxes[13] = doubleTime14;
-            checkBoxes[14] = doubleTime15;
-            checkBoxes[15] = doubleTime16;
-            checkBoxes[16] = doubleTime17;
-            checkBoxes[17] = doubleTime18;
-            checkBoxes[18] = doubleTime19;
-            checkBoxes[19] = doubleTime20;
+            checkBoxes[0] = button1;
+            checkBoxes[1] = button2;
+            checkBoxes[2] = button3;
+            checkBoxes[3] = button4;
+            checkBoxes[4] = button5;
+            checkBoxes[5] = button6;
+            checkBoxes[6] = button7;
+            checkBoxes[7] = button8;
+            checkBoxes[8] = button9;
+            checkBoxes[9] = button10;
+            checkBoxes[10] = button11;
+            checkBoxes[11] = button12;
+            checkBoxes[12] = button13;
+            checkBoxes[13] = button14;
+            checkBoxes[14] = button15;
+            checkBoxes[15] = button16;
+            checkBoxes[16] = button17;
+            checkBoxes[17] = button18;
+            checkBoxes[18] = button19;
+            checkBoxes[19] = button20;
+
+            //Den Button (Checkboxen), das click-Event hinzufügen
+            foreach (Button a in checkBoxes)
+            {
+                a.Click += buttonPressed;
+            }
+        }
+
+        private void buttonPressed(object sender, EventArgs e)
+        {
+            Button clickButton = (Button)sender;
+            if (clickButton.Text == "")
+            {
+                clickButton.Text = "X";
+            }
+            else
+            {
+                clickButton.Text = "";
+            }
         }
 
         private void Form1_Resize(object sender, EventArgs e)

@@ -16,6 +16,36 @@ namespace DnD_Kampfverwaltung
         {
             InitializeComponent();
             this.Text = "Kämpfer";
+            newFighter.Select();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (button1.Text == "")
+            {
+                button1.Text = "X";
+            }
+            else
+            {
+                button1.Text = "";
+            }
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            //Wenn ESC gedrückt wird, Fenster schließen, bei ENTER Kampf starten
+            switch (keyData)
+            {
+                case Keys.Escape:
+                    this.Close();
+                    return true;
+                case Keys.Enter:
+                    addButton.PerformClick();
+                    return true;
+                default:
+                    return false;
+            }
+        }
+
     }
 }
