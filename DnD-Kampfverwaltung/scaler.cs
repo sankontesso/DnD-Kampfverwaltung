@@ -12,7 +12,6 @@ namespace DnD_Kampfverwaltung
     {
         public scaler()
         {
-
         }
 
         public void scale(int standardSizeX, int standardSizeY, Form formA,

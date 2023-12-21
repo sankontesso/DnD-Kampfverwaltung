@@ -149,7 +149,7 @@ namespace DnD_Kampfverwaltung
             //Speichert die Werte der Checkboxen in den aktiven Kämpfer
             foreach (var cb in checkBoxes)
             {
-                activeFighter.statuses[cb.Key] = (activeFighter.statuses[cb.Key].Item1, cb.Value.Text == "X");
+                activeFighter.statuses[cb.Key] = (activeFighter.statuses[cb.Key].Item1, cb.Value.Text == "X", activeFighter.statuses[cb.Key].Item3);
             }
         }
 
@@ -167,7 +167,6 @@ namespace DnD_Kampfverwaltung
             }
             //Kämpferdaten an Checkboxen anpassen und Erschöpfung entfernen
             checkboxesToFighter();
-            activeFighter.exhaustion = 0;
         }
 
         private void addCheckBoxes()
@@ -187,8 +186,8 @@ namespace DnD_Kampfverwaltung
 
                 //Beschriftungen für die Zustände einfügen
                 Label statusLabel = new Label();
-                statusLabel.Text = status.Value.Item1;
-                statusLabel.Size = new Size(80, 20);
+                statusLabel.Text = status.Value.Item1 + " [" + status.Value.Item3 + "]";
+                statusLabel.Size = new Size(120, 20);
                 statusLabel.Location = new Point(150 * (i % 3) + 40, 20 * (i / 3) + 40);
                 
                 //Hinzufügen zum Formular
@@ -229,6 +228,15 @@ namespace DnD_Kampfverwaltung
                     resetButton.PerformClick();
                     return true;
                 default:
+                    //Generierte Buchstaben der Statuse
+                    foreach(var status in activeFighter.statuses)
+                    {
+                        if (status.Value.Item3.Equals(keyData.ToString()))
+                        {
+                            checkBoxes[status.Key].PerformClick();
+                        }
+                    }
+
                     return false;
             }
         }
