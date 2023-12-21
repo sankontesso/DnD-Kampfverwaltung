@@ -55,7 +55,7 @@
             // 
             // button1
             // 
-            button1.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.Font = new Font("Segoe UI", 26.25F, FontStyle.Regular, GraphicsUnit.Point);
             button1.Location = new Point(12, 12);
             button1.Name = "button1";
             button1.Size = new Size(50, 50);
@@ -72,7 +72,7 @@
             Controls.Add(newFighter);
             Controls.Add(addButton);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            MaximumSize = new Size(400, 250);
+            MaximumSize = new Size(400, 220);
             MinimumSize = new Size(400, 220);
             Name = "Form3";
             Text = "Form3";

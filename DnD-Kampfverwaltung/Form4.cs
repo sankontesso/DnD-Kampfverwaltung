@@ -23,6 +23,7 @@ namespace DnD_Kampfverwaltung
         private Dictionary<Control, float> initialFontSizes = new Dictionary<Control, float>();
         private int standardSizeX;
         private int standardSizeY;
+        scaler scaler = new scaler();
 
         public Form4(List<fighter> fighters, int fighterNumber)
         {
@@ -54,6 +55,9 @@ namespace DnD_Kampfverwaltung
             }
             standardSizeX = this.Width;
             standardSizeY = this.Height;
+
+            //Skalierung an die Bildschirmauflösung
+            scaler.resolutionAdept(standardSizeX, standardSizeY, this);
 
             //Fenster maximieren
             this.WindowState = FormWindowState.Maximized;
@@ -231,26 +235,7 @@ namespace DnD_Kampfverwaltung
 
         private void Form4_Resize(object sender, EventArgs e)
         {
-            resize();
-        }
-
-        private void resize()
-        {
-            //Skalierungsfaktor bestimmen
-            float scaleX = (float)this.Size.Width / (float)standardSizeX;
-            float scaleY = (float)this.Size.Height / (float)standardSizeY;
-
-            //Alle Positionen, Größen und Schriftgrößen anpassen
-            foreach (Control control in this.Controls)
-            {
-                control.Left = (int)(initialFormSize[control].Left * scaleX);
-                control.Top = (int)(initialFormSize[control].Top * scaleY);
-                control.Width = (int)(initialFormSize[control].Width * scaleX);
-                control.Height = (int)(initialFormSize[control].Height * scaleY);
-
-                float currentSize = initialFontSizes[control];
-                control.Font = new Font(control.Font.FontFamily, currentSize * Math.Min(scaleX, scaleY));
-            }
+            scaler.scale(standardSizeX, standardSizeY, this, initialFormSize, initialFontSizes);
 
             //Buttons quadratisch formatieren
             fighter f = fighters[0];

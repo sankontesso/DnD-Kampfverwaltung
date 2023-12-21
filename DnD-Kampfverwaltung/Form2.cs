@@ -34,8 +34,9 @@ namespace DnD_Kampfverwaltung
         private Dictionary<Control, float> initialFontSizes = new Dictionary<Control, float>();
         private int standardSizeX;
         private int standardSizeY;
+        scaler scaler = new scaler();
 
-        public Form2(List<fighter> fighters, int timePerRound)
+        public Form2(List<fighter> fighters, int timePerRound = 120)
         {
             InitializeComponent();
             //Wenn Rundenzeit angegeben, passe Werte an
@@ -58,6 +59,9 @@ namespace DnD_Kampfverwaltung
             }
             standardSizeX = this.Width;
             standardSizeY = this.Height;
+
+            //Skalierung an die Bildschirmauflösung
+            scaler.resolutionAdept(standardSizeX, standardSizeY, this);
 
             //Fenster maximieren
             this.WindowState = FormWindowState.Maximized;
@@ -92,7 +96,7 @@ namespace DnD_Kampfverwaltung
 
             //Aktuelle Statusveränderungen dem Anzeigetext hinzufügen
             string statusList = "";
-            foreach (var st in fighters[activeFighter].statuses)
+            foreach (var st in fighters[activeFighter % fighterCount].statuses)
             {
                 if (st.Value.Item2)
                 {
@@ -102,7 +106,7 @@ namespace DnD_Kampfverwaltung
             }
 
             //Erschöpfung dem Text hinzufügen
-            if (fighters[activeFighter].exhaustion > 0)
+            if (fighters[activeFighter % fighterCount].exhaustion > 0)
             {
                 if (statusList != "") statusList += ", ";
                 statusList += "Erschöpfung Stufe " + fighters[activeFighter].exhaustion;
@@ -234,28 +238,6 @@ namespace DnD_Kampfverwaltung
             }
         }
 
-        private void resize()
-        {
-            //Skalierungsfaktor bestimmen
-            float scaleX = (float)this.Size.Width / (float)standardSizeX;
-            float scaleY = (float)this.Size.Height / (float)standardSizeY;
-
-            //Alle Positionen, Größen und Schriftgrößen anpassen
-            foreach (Control control in this.Controls)
-            {
-                control.Left = (int)(initialFormSize[control].Left * scaleX);
-                control.Top = (int)(initialFormSize[control].Top * scaleY);
-                control.Width = (int)(initialFormSize[control].Width * scaleX);
-                control.Height = (int)(initialFormSize[control].Height * scaleY);
-
-                float currentSize = initialFontSizes[control];
-                control.Font = new Font(control.Font.FontFamily, currentSize * Math.Min(scaleX, scaleY), control.Font.Style);
-            }
-
-            //Label Inhalte anpassen
-            //foreach(Label l in fighterLabels) fitLabelToContent(l);
-        }
-
         /*private void fitLabelToContent(Label l)
         {
             int maxSize = l.Size.Width;
@@ -277,7 +259,7 @@ namespace DnD_Kampfverwaltung
 
         private void Form2_Resize(object sender, EventArgs e)
         {
-            resize();
+            scaler.scale(standardSizeX, standardSizeY, this, initialFormSize, initialFontSizes);
         }
 
         private void statusButton_Click(object sender, EventArgs e)

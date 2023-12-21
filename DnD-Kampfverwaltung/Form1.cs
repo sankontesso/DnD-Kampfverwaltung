@@ -9,7 +9,6 @@ namespace DnD_Kampfverwaltung
     {
         //Liste mit den Kämpfern und ihren Werten
         public List<fighter> fighters = new List<fighter>();
-
         private TextBox[] textBoxes = new TextBox[20];
         private Button[] checkBoxes = new Button[20];
         public int counter = 0;
@@ -19,6 +18,7 @@ namespace DnD_Kampfverwaltung
         private Dictionary<Control, float> initialFontSizes = new Dictionary<Control, float>();
         private int standardSizeX;
         private int standardSizeY;
+        private scaler scaler = new scaler();
 
         public Form1()
         {
@@ -35,6 +35,9 @@ namespace DnD_Kampfverwaltung
             }
             standardSizeX = this.Width;
             standardSizeY = this.Height;
+
+            //Skalierung an die Bildschirmauflösung
+            scaler.resolutionAdept(standardSizeX, standardSizeY, this);
 
             //Fenster maximieren
             this.WindowState = FormWindowState.Maximized;
@@ -62,7 +65,7 @@ namespace DnD_Kampfverwaltung
             {
                 if (timePerRound.Text == "") //Wenn keine Rundenzeit angegeben, wähle Standardwert (120s)
                 {
-                    Form2 scene = new Form2(fighters, 120);
+                    Form2 scene = new Form2(fighters);
                     scene.Show();
                 }
                 else //Sonst angegebene Zugzeit wählen
@@ -90,7 +93,7 @@ namespace DnD_Kampfverwaltung
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            //Wenn ESC gedrückt wird, Fenster schließen, bei ENTER Kampf starten
+            //Wenn ESC gedrückt wird, Fenster schließen, bei ENTER Kampf starten, DEL leert alle Felder
             switch (keyData)
             {
                 case Keys.Escape:
@@ -104,32 +107,6 @@ namespace DnD_Kampfverwaltung
                     return true;
                 default:
                     return false;
-            }
-        }
-
-        private void resize()
-        {
-            //Skalierungsfaktor bestimmen
-            float scaleX = (float)this.Size.Width / (float)standardSizeX;
-            float scaleY = (float)this.Size.Height / (float)standardSizeY;
-
-            //Alle Positionen, Größen und Schriftgrößen anpassen
-            foreach (Control control in this.Controls)
-            {
-                control.Left = (int)(initialFormSize[control].Left * scaleX);
-                control.Top = (int)(initialFormSize[control].Top * scaleY);
-                control.Width = (int)(initialFormSize[control].Width * scaleX);
-                control.Height = (int)(initialFormSize[control].Height * scaleY);
-
-                float currentSize = initialFontSizes[control];
-                control.Font = new Font(control.Font.FontFamily, currentSize * Math.Min(scaleX, scaleY));
-            }
-
-            //Buttons quadratisch formatieren
-            for (int i = 0; i < checkBoxes.Length; i++)
-            {
-                checkBoxes[i].Location = new Point(checkBoxes[i].Left + (checkBoxes[i].Width - checkBoxes[i].Height), checkBoxes[i].Top);
-                checkBoxes[i].Size = new Size(checkBoxes[i].Height, checkBoxes[i].Height);
             }
         }
 
@@ -201,7 +178,8 @@ namespace DnD_Kampfverwaltung
 
         private void Form1_Resize(object sender, EventArgs e)
         {
-            resize();
+            scaler.scale(standardSizeX, standardSizeY, this, initialFormSize, initialFontSizes);
+            scaler.quadraticButtons(checkBoxes);
         }
     }
 }

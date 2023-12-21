@@ -212,6 +212,7 @@
             Controls.Add(activeLabel);
             Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MinimumSize = new Size(887, 620);
             Name = "Form2";
             Text = "Form2";
             Resize += Form2_Resize;

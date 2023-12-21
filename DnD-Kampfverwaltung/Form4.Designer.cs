@@ -50,7 +50,7 @@
             acceptButton.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             acceptButton.Location = new Point(12, 141);
             acceptButton.Name = "acceptButton";
-            acceptButton.Size = new Size(222, 48);
+            acceptButton.Size = new Size(211, 48);
             acceptButton.TabIndex = 2;
             acceptButton.Text = "Akzeptieren [ENTER]";
             acceptButton.UseVisualStyleBackColor = true;
@@ -70,11 +70,11 @@
             // resetButton
             // 
             resetButton.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            resetButton.Location = new Point(333, 141);
+            resetButton.Location = new Point(276, 141);
             resetButton.Name = "resetButton";
-            resetButton.Size = new Size(108, 48);
+            resetButton.Size = new Size(165, 48);
             resetButton.TabIndex = 4;
-            resetButton.Text = "Reset [R]";
+            resetButton.Text = "Reset Status [R]";
             resetButton.UseVisualStyleBackColor = true;
             resetButton.Click += resetButton_Click;
             // 
@@ -88,6 +88,7 @@
             Controls.Add(acceptButton);
             Controls.Add(comboBox1);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MinimumSize = new Size(469, 235);
             Name = "Form4";
             Text = "Form4";
             Resize += Form4_Resize;
