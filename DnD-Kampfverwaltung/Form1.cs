@@ -14,8 +14,8 @@ namespace DnD_Kampfverwaltung
         public int counter = 0;
 
         //Variablen für das Resizing
-        private Dictionary<Control, Rectangle> initialFormSize = new Dictionary<Control, Rectangle>();
-        private Dictionary<Control, float> initialFontSizes = new Dictionary<Control, float>();
+        public Dictionary<Control, Rectangle> initialFormSize = new Dictionary<Control, Rectangle>(); //HIER AUF PUBLIC?!?!?!?!
+        public Dictionary<Control, float> initialFontSizes = new Dictionary<Control, float>();
         private int standardSizeX;
         private int standardSizeY;
         private scaler scaler = new scaler();

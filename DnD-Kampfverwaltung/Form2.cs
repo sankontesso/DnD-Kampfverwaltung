@@ -7,7 +7,6 @@ using System.Diagnostics.Metrics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
@@ -237,25 +236,6 @@ namespace DnD_Kampfverwaltung
                 showOrder(); //Neue Reihenfolge anzeigen
             }
         }
-
-        /*private void fitLabelToContent(Label l)
-        {
-            int maxSize = l.Size.Width;
-
-            if (TextRenderer.MeasureText(l.Text, l.Font).Width <= maxSize) return;
-
-            string labelText = l.Text;
-            string textNumber = "..." + Regex.Replace(l.Text, "[^0-9]", "");
-            labelText = Regex.Replace(l.Text, "[0-9]", "");
-
-            for (int i = 0; i < labelText.Length; i++) {
-                if(TextRenderer.MeasureText(labelText.Substring(i + 1) + textNumber, l.Font).Width >= maxSize)
-                {
-                    l.Text = labelText.Substring(i) + textNumber;
-                    return;
-                }
-            }       
-        }*/
 
         private void Form2_Resize(object sender, EventArgs e)
         {
