@@ -46,20 +46,20 @@ namespace DnD_Kampfverwaltung
 
         public void resolutionAdept(int standardSizeX, int standardSizeY, Form formA)
         {
-            // Verhältnis zwischen der aktuellen Bildschirmauflösung und der Standardauflösung berechnen
+            //Verhältnis zwischen der aktuellen Bildschirmauflösung und der Standardauflösung berechnen
             float scaleX = (float)Screen.PrimaryScreen.Bounds.Width / standardSizeX;
             float scaleY = (float)Screen.PrimaryScreen.Bounds.Height / standardSizeY;
 
-            // Skalierungsfaktor bestimmen (Minimum, um das Seitenverhältnis zu erhalten)
+            //Skalierungsfaktor bestimmen (Minimum, um das Seitenverhältnis zu erhalten)
             float scale = Math.Min(scaleX, scaleY);
 
-            // Formulargröße und Position anpassen
+            //Formulargröße und Position anpassen
             formA.Width = (int)(standardSizeX * scale);
             formA.Height = (int)(standardSizeY * scale);
             formA.Location = new Point((Screen.PrimaryScreen.Bounds.Width - formA.Width) / 2,
                                        (Screen.PrimaryScreen.Bounds.Height - formA.Height) / 2);
 
-            // Alle Steuerelemente und Schriftarten skalieren
+            //Alle Steuerelemente und Schriftarten skalieren
             foreach (Control control in formA.Controls)
             {
                 control.Left = (int)(control.Left * scale);
