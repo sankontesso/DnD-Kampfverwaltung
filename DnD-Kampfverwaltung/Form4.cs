@@ -236,7 +236,6 @@ namespace DnD_Kampfverwaltung
                             checkBoxes[status.Key].PerformClick();
                         }
                     }
-
                     return false;
             }
         }
@@ -245,7 +244,7 @@ namespace DnD_Kampfverwaltung
         {
             scaler.scale(standardSizeX, standardSizeY, this, initialFormSize, initialFontSizes);
 
-            //Buttons quadratisch formatieren
+            //Buttons quadratisch formatieren (nicht per scaler, da funktional hinzugefügt wurde)
             fighter f = fighters[0];
             foreach (var status in f.statuses)
             {
