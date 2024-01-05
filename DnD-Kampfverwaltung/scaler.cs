@@ -51,8 +51,12 @@ namespace DnD_Kampfverwaltung
             //Nimmt Buttons in der übergebenen Liste und skaliert sie quadratisch
             for (int i = 0; i < buttons.Length; i++)
             {
-                buttons[i].Location = new Point(buttons[i].Left + (buttons[i].Width - buttons[i].Height), buttons[i].Top);
-                buttons[i].Size = new Size(buttons[i].Height, buttons[i].Height);
+                try
+                {
+                    buttons[i].Location = new Point(buttons[i].Left + (buttons[i].Width - buttons[i].Height), buttons[i].Top);
+                    buttons[i].Size = new Size(buttons[i].Height, buttons[i].Height);
+                }
+                catch { }
             }
         }
 
