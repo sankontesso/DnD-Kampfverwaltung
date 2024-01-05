@@ -33,12 +33,6 @@ namespace DnD_Kampfverwaltung
                           (int)(initialFormSize[control].Width * scaleX),
                            (int)(initialFormSize[control].Height * scaleY)
                            );
-
-                    /*control.Left = (int)(initialFormSize[control].Left * scaleX);
-                    control.Top = (int)(initialFormSize[control].Top * scaleY);
-                    control.Width = (int)(initialFormSize[control].Width * scaleX);
-                    control.Height = (int)(initialFormSize[control].Height * scaleY);*/
-
                     float currentSize = initialFontSizes[control];
                     control.Font = new Font(control.Font.FontFamily, currentSize * Math.Min(scaleX, scaleY));
                 }
@@ -49,12 +43,13 @@ namespace DnD_Kampfverwaltung
         public void quadraticButtons(Button[] buttons)
         {
             //Nimmt Buttons in der übergebenen Liste und skaliert sie quadratisch
-            for (int i = 0; i < buttons.Length; i++)
+
+            foreach (Button button in buttons)
             {
                 try
                 {
-                    buttons[i].Location = new Point(buttons[i].Left + (buttons[i].Width - buttons[i].Height), buttons[i].Top);
-                    buttons[i].Size = new Size(buttons[i].Height, buttons[i].Height);
+                    button.Location = new Point(button.Left + (button.Width - button.Height), button.Top);
+                    button.Size = new Size(button.Height, button.Height);
                 }
                 catch { }
             }
@@ -86,13 +81,8 @@ namespace DnD_Kampfverwaltung
                         (int)(control.Height * scale)
                         );
                     control.Font = new Font(control.Font.FontFamily, control.Font.Size * scale);
-
-                    /*control.Left = (int)(control.Left * scale);
-                    control.Top = (int)(control.Top * scale);
-                    control.Width = (int)(control.Width * scale);
-                    control.Height = (int)(control.Height * scale);
-                    control.Font = new Font(control.Font.FontFamily, control.Font.Size * scale);*/
-                }catch { }
+                }
+                catch { }
             }
 
             formA.Size = formA.MaximumSize;
