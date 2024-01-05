@@ -187,7 +187,7 @@
             statusLabel.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             statusLabel.Location = new Point(12, 298);
             statusLabel.Name = "statusLabel";
-            statusLabel.Size = new Size(841, 30);
+            statusLabel.Size = new Size(841, 49);
             statusLabel.TabIndex = 28;
             statusLabel.Text = "STATUSVERÄNDERUNGEN";
             // 
