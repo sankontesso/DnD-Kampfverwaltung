@@ -25,21 +25,24 @@ namespace DnD_Kampfverwaltung
             //Alle Positionen, Größen und Schriftgrößen anpassen
             foreach (Control control in formA.Controls)
             {
+                try
+                {
+                    control.Bounds = new Rectangle(
+                        (int)(initialFormSize[control].Left * scaleX),
+                         (int)(initialFormSize[control].Top * scaleY),
+                          (int)(initialFormSize[control].Width * scaleX),
+                           (int)(initialFormSize[control].Height * scaleY)
+                           );
 
-                control.Bounds = new Rectangle(
-                    (int)(initialFormSize[control].Left * scaleX),
-                     (int)(initialFormSize[control].Top * scaleY),
-                      (int)(initialFormSize[control].Width * scaleX),
-                       (int)(initialFormSize[control].Height * scaleY)
-                       );
+                    /*control.Left = (int)(initialFormSize[control].Left * scaleX);
+                    control.Top = (int)(initialFormSize[control].Top * scaleY);
+                    control.Width = (int)(initialFormSize[control].Width * scaleX);
+                    control.Height = (int)(initialFormSize[control].Height * scaleY);*/
 
-                /*control.Left = (int)(initialFormSize[control].Left * scaleX);
-                control.Top = (int)(initialFormSize[control].Top * scaleY);
-                control.Width = (int)(initialFormSize[control].Width * scaleX);
-                control.Height = (int)(initialFormSize[control].Height * scaleY);*/
-
-                float currentSize = initialFontSizes[control];
-                control.Font = new Font(control.Font.FontFamily, currentSize * Math.Min(scaleX, scaleY));
+                    float currentSize = initialFontSizes[control];
+                    control.Font = new Font(control.Font.FontFamily, currentSize * Math.Min(scaleX, scaleY));
+                }
+                catch { }
             }
         }
 
@@ -71,19 +74,21 @@ namespace DnD_Kampfverwaltung
             //Alle Steuerelemente und Schriftarten skalieren
             foreach (Control control in formA.Controls)
             {
+                try
+                {
+                    control.Bounds = new Rectangle((int)(control.Left * scale),
+                        (int)(control.Top * scale),
+                        (int)(control.Width * scale),
+                        (int)(control.Height * scale)
+                        );
+                    control.Font = new Font(control.Font.FontFamily, control.Font.Size * scale);
 
-                control.Bounds = new Rectangle((int)(control.Left * scale),
-                    (int)(control.Top * scale),
-                    (int)(control.Width * scale),
-                    (int)(control.Height * scale)
-                    );
-                control.Font = new Font(control.Font.FontFamily, control.Font.Size * scale);
-
-                /*control.Left = (int)(control.Left * scale);
-                control.Top = (int)(control.Top * scale);
-                control.Width = (int)(control.Width * scale);
-                control.Height = (int)(control.Height * scale);
-                control.Font = new Font(control.Font.FontFamily, control.Font.Size * scale);*/
+                    /*control.Left = (int)(control.Left * scale);
+                    control.Top = (int)(control.Top * scale);
+                    control.Width = (int)(control.Width * scale);
+                    control.Height = (int)(control.Height * scale);
+                    control.Font = new Font(control.Font.FontFamily, control.Font.Size * scale);*/
+                }catch { }
             }
 
             formA.Size = formA.MaximumSize;
