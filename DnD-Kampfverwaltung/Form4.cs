@@ -79,32 +79,6 @@ namespace DnD_Kampfverwaltung
             }
         }
 
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //Erschöpfung anhand der Combobox aktualisieren
-            switch (comboBox2.SelectedIndex)
-            {
-                case 0:
-                    activeFighter.exhaustion = 0;
-                    break;
-                case 1:
-                    activeFighter.exhaustion = 1;
-                    break;
-                case 2:
-                    activeFighter.exhaustion = 2;
-                    break;
-                case 3:
-                    activeFighter.exhaustion = 3;
-                    break;
-                case 4:
-                    activeFighter.exhaustion = 4;
-                    break;
-                case 5:
-                    activeFighter.exhaustion = 5;
-                    break;
-            }
-        }
-
         private void fighterToCheckboxes()
         {
             //Alle Checkboxen durchlaufen und an die Werte vom ausgewählten Kämpfer
@@ -124,33 +98,38 @@ namespace DnD_Kampfverwaltung
             switch (activeFighter.exhaustion)
             {
                 case 0:
-                    comboBox2.SelectedIndex = 0;
+                    exhaustionBox.SelectedIndex = 0;
                     break;
                 case 1:
-                    comboBox2.SelectedIndex = 1;
+                    exhaustionBox.SelectedIndex = 1;
                     break;
                 case 2:
-                    comboBox2.SelectedIndex = 2;
+                    exhaustionBox.SelectedIndex = 2;
                     break;
                 case 3:
-                    comboBox2.SelectedIndex = 3;
+                    exhaustionBox.SelectedIndex = 3;
                     break;
                 case 4:
-                    comboBox2.SelectedIndex = 4;
+                    exhaustionBox.SelectedIndex = 4;
                     break;
                 case 5:
-                    comboBox2.SelectedIndex = 5;
+                    exhaustionBox.SelectedIndex = 5;
                     break;
             }
         }
 
         public void checkboxesToFighter()
         {
-            //Speichert die Werte der Checkboxen in den aktiven Kämpfer
+            //Speichert die Werte der Checkboxen und Erschöpfungsauswahl in den aktiven Kämpfer
             foreach (var cb in checkBoxes)
             {
                 activeFighter.statuses[cb.Key] = (activeFighter.statuses[cb.Key].Item1, cb.Value.Text == "X", activeFighter.statuses[cb.Key].Item3);
             }
+            try
+            {
+                activeFighter.exhaustion = exhaustionBox.SelectedIndex;
+            }
+            catch { }
         }
 
         private void acceptButton_Click(object sender, EventArgs e)
@@ -160,13 +139,12 @@ namespace DnD_Kampfverwaltung
 
         private void resetButton_Click(object sender, EventArgs e)
         {
-            //Alle Checkboxen zurücksetzen
+            //Alle Checkboxen und Erschöpfungsauswahl zurücksetzen
             foreach (var cb in checkBoxes)
             {
                 cb.Value.Text = "";
             }
-            //Kämpferdaten an Checkboxen anpassen und Erschöpfung entfernen
-            checkboxesToFighter();
+            exhaustionBox.SelectedIndex = 0;
         }
 
         private void addCheckBoxes()
@@ -227,6 +205,25 @@ namespace DnD_Kampfverwaltung
                 case Keys.R:
                     resetButton.PerformClick();
                     return true;
+                case Keys.D0:
+                    exhaustionBox.SelectedIndex = 0;
+                    return true;
+                case Keys.D1:
+                    exhaustionBox.SelectedIndex = 1;
+                    return true;
+                case Keys.D2:
+                    exhaustionBox.SelectedIndex = 2;
+                    return true;
+                case Keys.D3:
+                    exhaustionBox.SelectedIndex = 3;
+                    return true;
+                case Keys.D4:
+                    exhaustionBox.SelectedIndex = 4;
+                    return true;
+                case Keys.D5:
+                    exhaustionBox.SelectedIndex = 5;
+                    return true;
+
                 default:
                     //Generierte Buchstaben der Statuse
                     foreach(var status in activeFighter.statuses)

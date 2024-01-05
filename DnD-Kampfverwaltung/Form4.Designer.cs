@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form4));
             comboBox1 = new ComboBox();
             acceptButton = new Button();
-            comboBox2 = new ComboBox();
+            exhaustionBox = new ComboBox();
             resetButton = new Button();
             SuspendLayout();
             // 
@@ -56,16 +56,15 @@
             acceptButton.UseVisualStyleBackColor = true;
             acceptButton.Click += acceptButton_Click;
             // 
-            // comboBox2
+            // exhaustionBox
             // 
-            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Items.AddRange(new object[] { "Ersch. 0", "Ersch. 1", "Ersch. 2", "Ersch. 3", "Ersch. 4", "Ersch. 5" });
-            comboBox2.Location = new Point(363, 12);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(78, 23);
-            comboBox2.TabIndex = 3;
-            comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
+            exhaustionBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            exhaustionBox.FormattingEnabled = true;
+            exhaustionBox.Items.AddRange(new object[] { "Ersch. 0", "Ersch. 1", "Ersch. 2", "Ersch. 3", "Ersch. 4", "Ersch. 5" });
+            exhaustionBox.Location = new Point(363, 12);
+            exhaustionBox.Name = "exhaustionBox";
+            exhaustionBox.Size = new Size(78, 23);
+            exhaustionBox.TabIndex = 3;
             // 
             // resetButton
             // 
@@ -84,7 +83,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(453, 196);
             Controls.Add(resetButton);
-            Controls.Add(comboBox2);
+            Controls.Add(exhaustionBox);
             Controls.Add(acceptButton);
             Controls.Add(comboBox1);
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -98,7 +97,7 @@
         #endregion
         public ComboBox comboBox1;
         public Button acceptButton;
-        public ComboBox comboBox2;
+        public ComboBox exhaustionBox;
         public Button resetButton;
     }
 }
