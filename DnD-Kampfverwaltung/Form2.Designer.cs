@@ -152,10 +152,10 @@
             // 
             logoBox.BackColor = SystemColors.Control;
             logoBox.BackgroundImageLayout = ImageLayout.None;
-            logoBox.Image = Properties.Resources.Logo_Scale;
-            logoBox.Location = new Point(3, -6);
+            logoBox.Image = Properties.Resources.Round;
+            logoBox.Location = new Point(-15, -9);
             logoBox.Name = "logoBox";
-            logoBox.Size = new Size(134, 124);
+            logoBox.Size = new Size(168, 172);
             logoBox.SizeMode = PictureBoxSizeMode.Zoom;
             logoBox.TabIndex = 25;
             logoBox.TabStop = false;
@@ -196,6 +196,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(871, 581);
+            Controls.Add(logoBox);
             Controls.Add(statusButton);
             Controls.Add(newFighterButton);
             Controls.Add(folgendLabel);
@@ -207,7 +208,6 @@
             Controls.Add(secondLabel);
             Controls.Add(timeLabel);
             Controls.Add(nextButton);
-            Controls.Add(logoBox);
             Controls.Add(activeLabel);
             Controls.Add(statusLabel);
             Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);

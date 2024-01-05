@@ -89,10 +89,10 @@
             logoBox.Anchor = AnchorStyles.None;
             logoBox.BackColor = SystemColors.Control;
             logoBox.BackgroundImageLayout = ImageLayout.None;
-            logoBox.Image = Properties.Resources.Logo_Scale;
-            logoBox.Location = new Point(149, -7);
+            logoBox.Image = Properties.Resources.Round;
+            logoBox.Location = new Point(135, -10);
             logoBox.Name = "logoBox";
-            logoBox.Size = new Size(201, 178);
+            logoBox.Size = new Size(206, 192);
             logoBox.SizeMode = PictureBoxSizeMode.Zoom;
             logoBox.TabIndex = 24;
             logoBox.TabStop = false;
