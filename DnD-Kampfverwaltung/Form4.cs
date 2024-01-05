@@ -243,15 +243,7 @@ namespace DnD_Kampfverwaltung
         private void Form4_Resize(object sender, EventArgs e)
         {
             scaler.scale(standardSizeX, standardSizeY, this, initialFormSize, initialFontSizes);
-
-            //Buttons quadratisch formatieren (nicht per scaler, da funktional hinzugefügt wurde)
-            fighter f = fighters[0];
-            foreach (var status in f.statuses)
-            {
-                Button a = checkBoxes[status.Key];
-                a.Location = new Point(a.Left + (a.Width - a.Height), a.Top);
-                a.Size = new Size(a.Height, a.Height);
-            }
+            scaler.quadraticButtonsStatus(fighters, checkBoxes);
         }
     }
 }

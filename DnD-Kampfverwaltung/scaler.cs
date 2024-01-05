@@ -98,7 +98,24 @@ namespace DnD_Kampfverwaltung
             formA.Size = formA.MaximumSize;
         }
 
-        private void fitLabelToContent(Label l)
+        public void quadraticButtonsStatus(List<fighter> fighters, Dictionary<string, Button> checkBoxes)
+        {
+            //Buttons quadratisch formatieren (nicht per scaler, da funktional hinzugefügt wurde)
+            fighter f = fighters[0];
+            foreach (var status in f.statuses)
+            {
+                try
+                {
+                    Button a = checkBoxes[status.Key];
+                    a.Location = new Point(a.Left + (a.Width - a.Height), a.Top);
+                    a.Size = new Size(a.Height, a.Height);
+                }
+                catch { }
+            }
+
+        }
+
+        public void fitLabelToContent(Label l)
         {
             int maxSize = l.Size.Width;
 
