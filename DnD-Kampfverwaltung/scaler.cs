@@ -43,7 +43,6 @@ namespace DnD_Kampfverwaltung
         public void quadraticButtons(Button[] buttons)
         {
             //Nimmt Buttons in der übergebenen Liste und skaliert sie quadratisch
-
             foreach (Button button in buttons)
             {
                 try
@@ -91,7 +90,7 @@ namespace DnD_Kampfverwaltung
         public void quadraticButtonsStatus(List<fighter> fighters, Dictionary<string, Button> checkBoxes)
         {
             //Buttons quadratisch formatieren (die automatisch generiert wurden (Statusverwaltung Form4))
-            fighter f = fighters[0];
+            fighter f = new fighter("", false);
             foreach (var status in f.statuses)
             {
                 try

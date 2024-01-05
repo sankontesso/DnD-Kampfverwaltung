@@ -53,7 +53,7 @@
             activeLabel.Font = new Font("Segoe UI", 100F, FontStyle.Regular, GraphicsUnit.Point);
             activeLabel.Location = new Point(-15, 121);
             activeLabel.Name = "activeLabel";
-            activeLabel.Size = new Size(868, 177);
+            activeLabel.Size = new Size(868, 162);
             activeLabel.TabIndex = 0;
             activeLabel.Text = "label1";
             // 
@@ -134,7 +134,7 @@
             roundsLabel.Font = new Font("Segoe UI", 27.75F, FontStyle.Regular, GraphicsUnit.Point);
             roundsLabel.Location = new Point(143, 34);
             roundsLabel.Name = "roundsLabel";
-            roundsLabel.Size = new Size(551, 50);
+            roundsLabel.Size = new Size(551, 66);
             roundsLabel.TabIndex = 8;
             roundsLabel.Text = "Runde: 1";
             // 
@@ -196,7 +196,6 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(871, 581);
-            Controls.Add(statusLabel);
             Controls.Add(statusButton);
             Controls.Add(newFighterButton);
             Controls.Add(folgendLabel);
@@ -210,6 +209,7 @@
             Controls.Add(nextButton);
             Controls.Add(logoBox);
             Controls.Add(activeLabel);
+            Controls.Add(statusLabel);
             Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MinimumSize = new Size(887, 620);
