@@ -100,7 +100,7 @@ namespace DnD_Kampfverwaltung
 
         public void quadraticButtonsStatus(List<fighter> fighters, Dictionary<string, Button> checkBoxes)
         {
-            //Buttons quadratisch formatieren (nicht per scaler, da funktional hinzugefügt wurde)
+            //Buttons quadratisch formatieren (die automatisch generiert wurden (Statusverwaltung Form4))
             fighter f = fighters[0];
             foreach (var status in f.statuses)
             {
