@@ -54,39 +54,6 @@ namespace DnD_Kampfverwaltung
             }
         }
 
-        public void resolutionAdept(int standardSizeX, int standardSizeY, Form formA)
-        {
-            //Verhältnis zwischen der aktuellen Bildschirmauflösung und der Standardauflösung berechnen
-            float scaleX = (float)Screen.PrimaryScreen.Bounds.Width / standardSizeX;
-            float scaleY = (float)Screen.PrimaryScreen.Bounds.Height / standardSizeY;
-
-            //Skalierungsfaktor bestimmen (Minimum, um das Seitenverhältnis zu erhalten)
-            float scale = Math.Min(scaleX, scaleY);
-
-            //Formulargröße und Position anpassen
-            formA.Width = (int)(standardSizeX * scale);
-            formA.Height = (int)(standardSizeY * scale);
-            formA.Location = new Point((Screen.PrimaryScreen.Bounds.Width - formA.Width) / 2,
-                                       (Screen.PrimaryScreen.Bounds.Height - formA.Height) / 2);
-
-            //Alle Steuerelemente und Schriftarten skalieren
-            foreach (Control control in formA.Controls)
-            {
-                try
-                {
-                    control.Bounds = new Rectangle((int)(control.Left * scale),
-                        (int)(control.Top * scale),
-                        (int)(control.Width * scale),
-                        (int)(control.Height * scale)
-                        );
-                    control.Font = new Font(control.Font.FontFamily, control.Font.Size * scale);
-                }
-                catch { }
-            }
-
-            formA.Size = formA.MaximumSize;
-        }
-
         public void quadraticButtonsStatus(List<fighter> fighters, Dictionary<string, Button> checkBoxes)
         {
             //Buttons quadratisch formatieren (die automatisch generiert wurden (Statusverwaltung Form4))
@@ -102,6 +69,35 @@ namespace DnD_Kampfverwaltung
                 catch { }
             }
 
+        }
+
+        public void resolutionAdept(Form formA)
+        {
+            //Verhältnis zwischen der aktuellen Bildschirmauflösung und der Standardauflösung berechnen
+            float scaleX = (float)Screen.PrimaryScreen.Bounds.Width / 1920;
+            float scaleY = (float)Screen.PrimaryScreen.Bounds.Height / 1080;
+
+            //Skalierungsfaktor bestimmen (Minimum, um das Seitenverhältnis zu erhalten)
+            float scale = Math.Min(scaleX, scaleY);
+
+            //Formulargröße und Position anpassen
+            formA.Width = (int)(formA.Width * scale);
+            formA.Height = (int)(formA.Height * scale);
+
+            //Alle Steuerelemente und Schriftarten skalieren
+            foreach (Control control in formA.Controls)
+            {
+                try
+                {
+                    control.Bounds = new Rectangle((int)(control.Left * scale),
+                        (int)(control.Top * scale),
+                        (int)(control.Width * scale),
+                        (int)(control.Height * scale)
+                        );
+                    control.Font = new Font(control.Font.FontFamily, control.Font.Size * scale);
+                }
+                catch { }
+            }
         }
 
         public void fitLabelToContent(Label l)

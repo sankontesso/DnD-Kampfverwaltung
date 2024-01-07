@@ -60,7 +60,7 @@ namespace DnD_Kampfverwaltung
             standardSizeY = this.Height;
 
             //Skalierung an die Bildschirmauflösung
-            scaler.resolutionAdept(standardSizeX, standardSizeY, this);
+            scaler.resolutionAdept(this);
 
             //Fenster maximieren
             this.WindowState = FormWindowState.Maximized;
@@ -91,6 +91,7 @@ namespace DnD_Kampfverwaltung
             {
                 fighterLabels[i].Text = "";
                 if (i < fighters.Count()) fighterLabels[i].Text = fighters[(i + activeFighter) % fighterCount].name;
+                scaler.fitLabelToContent(fighterLabels[i]);
             }
 
             //Aktuelle Statusveränderungen dem Anzeigetext hinzufügen

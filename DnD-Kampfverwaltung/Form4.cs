@@ -57,7 +57,7 @@ namespace DnD_Kampfverwaltung
             standardSizeY = this.Height;
 
             //Skalierung an die Bildschirmauflösung
-            scaler.resolutionAdept(standardSizeX, standardSizeY, this);
+            scaler.resolutionAdept(this);
 
             //Fenster maximieren
             this.WindowState = FormWindowState.Maximized;

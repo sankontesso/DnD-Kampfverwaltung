@@ -12,9 +12,12 @@ namespace DnD_Kampfverwaltung
 {
     public partial class Form3 : Form
     {
+        scaler scaler = new scaler();
+
         public Form3()
         {
             InitializeComponent();
+            scaler.resolutionAdept(this);
             this.Text = "Kämpfer";
             newFighter.Select();
         }
